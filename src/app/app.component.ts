@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+// import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  // for the login component to be used, it has to be imported from the app component.
+  imports: [LoginComponent, SignupComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
