@@ -20,6 +20,24 @@ export class AppComponent {
   data2= 200;
   user1= 'chabsy';
   user2='madara';
+   // defining data type for a property and also multiple data type as well using a pipe
+  data3:number | string=43;
+    userLogin:boolean= true;
+    info:any = "this is some data"
+    //typescript is also smart enough to know that this is a string below
+    email = "johndoe@example.com"
+
+    // any means any data type
+    pineapple(){
+      this.data3 = "abc"
+      this.info = 2121
+
+      //few moments later
+      this.info = true
+
+      //
+      this.info=[]
+    }
 // variables can be declared inside functions but cant be used outside the function.
   hello(){
     let x =10;
@@ -34,8 +52,16 @@ export class AppComponent {
     this.handleClickEvent()
     this.otherFunction()
   }
-
+//   Defining data types is telling the variable what kind of data you want to store. in e.g string is what will be assigned to the variable and it applies to wherever you use it.
+  firstname:string = "Confucius"
   otherFunction(){
     console.log("other function")
+    // if it is not a string it will throw an error cause it expects a string value and nothing else.You cannot directly define a variable in a class but it can be done inside a function itself i.e you cant do this: let firstname:string = "Confucius"
+    this.firstname = "30";
   }
+// if its not defined it will throw an error
+  sum(a:number,b:number){
+    console.log(a + b);
+  }
+
 }
