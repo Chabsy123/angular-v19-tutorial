@@ -41,4 +41,18 @@
  <!-- using the function in ts the numbers as mirrored in the parameters will be added unless the parameters are not numeric-->
 <button (click)="sum(10,20)">Sum</button>
 
-
+<!-- making a counter app  -->
+<h3>counter app</h3>
+<div style="text-align: center;">
+  <!-- using interpolation for the count number -->
+  <h3 class="count">{{count}}</h3>
+  <div>
+    <!-- <button (click)="handleDecrement()"  class="btn bg-red">Decrement</button>
+    <button (click)="handleReset()"  class="btn bg-black">Reset</button>
+    <button (click)="handleIncrement()" class="btn bg-green">Increment</button> -->
+    <!-- using the function and  its parameters -->
+    <button (click)="handleCounter('minus')"  class="btn bg-red">Decrement</button>
+    <button (click)="handleCounter('reset')"  class="btn bg-black">Reset</button>
+    <button (click)="handleCounter('plus')" class="btn bg-green">Increment</button>
+  </div>
+</div>

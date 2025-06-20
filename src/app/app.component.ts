@@ -63,5 +63,27 @@ export class AppComponent {
   sum(a:number,b:number){
     console.log(a + b);
   }
-
+// count app
+// where the number will increment, decrement and reset
+count:number = 0;
+// functions for increment, decrement and reset
+handleIncrement(){
+  this.count += 1;
+}
+handleDecrement(){
+  this.count -= 1;
+}
+handleReset(){
+  this.count = 0;
+}
+// or just use an if/else statement within a function with parameters for the three of them
+handleCounter(val:string){
+  if(val == 'minus'){
+     this.count -= 1
+  }else if(val == 'plus'){
+     this.count += 1
+  }else{
+     this.count = 0
+  }
+}
 }
