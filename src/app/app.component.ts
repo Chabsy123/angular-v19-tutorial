@@ -26,4 +26,16 @@ export class AppComponent {
     const y=20;
     var data=30;
   }
+  // when making functions in classes the function keyword is not needed
+  handleClickEvent(){
+    // alert("Function Called");
+    console.log("Function Called");
+    // use the this keyword if you want to call a function inside a class or another function as far as they are in the same class(calling a function from another function) e.g
+    this.handleClickEvent()
+    this.otherFunction()
+  }
+
+  otherFunction(){
+    console.log("other function")
+  }
 }
