@@ -56,3 +56,21 @@
     <button (click)="handleCounter('plus')" class="btn bg-green">Increment</button>
   </div>
 </div>
+
+<!-- get and set input field value using an event whether keyup or keydown but input a dollar sign before the event name-->
+ <!-- gets its value on the html as well as the console -->
+ <h2>{{username}}</h2>
+ <!--  -->
+ <!-- setting the value from the ts -->
+<input value="{{username}}"
+(input)="getUserName($event)"
+#userNameField
+
+type="text"
+ placeholder="Enter username">
+<br><br>
+<!-- setting the value to be called by the button -->
+<button (click)="setUserName()">Set username</button>
+<!-- get input value note on typing by adding one function and creating a template variable -->
+<button (click)="getUserNameWithTemplate(userNameField.value)">Get username</button>
+
