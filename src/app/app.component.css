@@ -31,3 +31,9 @@
   padding: 10px;
   border-radius: 10px;
 }
+
+/* this css component is relative to the app component only and not applicable to the nested component, you must use the applicable component.css file to  style it */
+h1{
+  color: red;
+  background-color: orange;
+}

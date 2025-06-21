@@ -1,0 +1,9 @@
+/* making a different in the same component to style a different element in this case which is button but dont forget to link it on the ts file on that component */
+button{
+  border: 3px solid gold;
+  width: 200px;
+  height: 90px;
+  font-size: 30px;
+  background-color: red;
+  color: white;
+}

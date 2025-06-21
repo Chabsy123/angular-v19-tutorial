@@ -6,7 +6,7 @@ import { Component } from "@angular/core";
  // template:"<h1>Profile</h1>",
 //  to use a html file template to your file
 templateUrl:'./profile.component.html',
-// to use an inline style to your component
+// to use an inline style to your component(using it again as styling from your component.ts if you dont have much code)
   // styles:"h1{color:Red}",
   // to use a css file for your styling
   styleUrl:'./profile.component.css'
