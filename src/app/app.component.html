@@ -130,4 +130,31 @@
 <div style="background-color: red; width: 100px; height: 100px"></div>
 } -->
 
+<!-- switch case in angular 19 -->
+ <button (click)="handleColor('red')">Red</button>
+ <button (click)="handleColor('blue')">Blue</button>
+ <button (click)="handleColor('green')">Green</button>
+ <button (click)="handleColor('gold')">Gold</button>
+<!-- (input)="changeColor($event)" sets up an event binding:
+
+It says: “When the user types (input event), call the changeColor function and pass the event object ($event) to it.” -->
+ <input type="text" placeholder="Enter color"  (input)="changeColor($event)">
+ @switch (color) {
+
+   @case ('red') {
+    <h1 style="background-color: red;color: white;">Red color</h1>
+   }
+   @case ('blue') {
+    <h1 style="background-color: blue;">Blue color</h1>
+   }
+   @case ('green') {
+    <h1 style="background-color: green;">Green color</h1>
+   }
+   @case ('gold') {
+    <h1 style="background-color: gold;">Gold color</h1>
+   }@default {
+    <h1 style="background-color: black; color: white;">NO MATCH</h1>
+   }
+
+}
 

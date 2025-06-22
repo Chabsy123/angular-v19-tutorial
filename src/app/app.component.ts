@@ -128,4 +128,20 @@ export class AppComponent {
 //   }
 
 
+// switch statements
+// the color below has to be in the switch statements or else it wont show in the server
+color="gold"
+handleColor(val:string){
+  this.color=val;
+
+}
+
+// event.target refers to the element that triggered the event (in this case, the <input> element).
+
+// (event.target as HTMLInputElement) is a type assertion in TypeScript — it tells the compiler: “Trust me, this is an <input> element.”
+
+// .value gets the current text value inside the input.
+changeColor(event:Event){
+  this.color = (event.target as HTMLInputElement).value
+}
 }
