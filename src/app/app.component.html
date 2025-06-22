@@ -1,93 +1,133 @@
-<!-- styling components -->
- <h1>Style Rules and Option</h1>
+<!-- styling components
+<h1>Style Rules and Option</h1>
 <h1>Hello, Angular 19</h1>
 <h1>Examples of Interpolation in Angular</h1>
 <style>
   /*use the styling element to style internally */
-  h2{
+  h2 {
     color: orange;
     background-color: black;
   }
 </style>
 <h2>Double Curly braces are a must in interpolation</h2>
-<!-- below are interpolation examples -->
-<h2>{{title}}</h2>
-<!--  js method executing it to uppercase inside the html code -->
-<h2>{{'hello'.toUpperCase()}}</h2>
-<h2>{{10==10}}</h2>
+<!- below are interpolation examples -->
+<!-- <h2>{{ title }}</h2> -->
+ <!-- js method executing it to uppercase inside the html code
+<h2>{{ "hello".toUpperCase() }}</h2>
+<h2>{{ 10 == 10 }}</h2> -->
 <!-- can also be used to compare values from the ts file -->
-<h2>{{user1==user2}}</h2>
-<!-- executes js inside code as well -->
-<h2>{{data+data2}}</h2>
+<!-- <h2>{{ user1 == user2 }}</h2>
+<!- executes js inside code as well -->
+<!-- <h2>{{ data + data2 }}</h2> -->
 <!-- inline styling -->
-<h3 style="background-color: gold; color: black; font-size: 50px;">{{name}}</h3>
-<hr>
+<!-- <h3 style="background-color: gold; color: black; font-size: 50px">
+  {{ name }}
+</h3>
+<hr />
 <app-user></app-user>
-<hr>
+<hr /> -->
 <!-- the following are the limitations of interpolation -->
- <!-- cannot assign a value -->
+<!-- cannot assign a value -->
 <!-- <h1>{{data=3000}}</h1> -->
 <!-- cannot redeclare a variable -->
 <!-- <h1>{{data3=3000}}</h1> -->
 <!-- cannot increment a value or loops unless it is ngFor ngIf  -->
 <!-- <h1>{{data2++}}</h1> -->
-<hr>
+<!-- <hr />
 <app-login></app-login>
-<hr>
+<hr /> -->
 <!-- change of selector -->
- <hr>
+<!-- <hr />
 <signup></signup>
-<hr>
+<hr /> -->
 <!-- <router-outlet> -->
 
-  <!-- use  custom profile component -->
-   <hr>
-   <app-profile></app-profile>
-   <hr>
-   <!-- can also be reused, the names can also be changed but it is advisable to use the selector name -->
-   <app-profile></app-profile>
-   <app-profile></app-profile>
-   <app-profile></app-profile>
-   <br><br>
+<!-- use  custom profile component -->
+<!-- <hr />
+<app-profile></app-profile>
+<hr /> -->
+<!-- can also be reused, the names can also be changed but it is advisable to use the selector name -->
+<!-- <app-profile></app-profile>
+<app-profile></app-profile>
+<app-profile></app-profile>
+<br /><br /> -->
 
-   <!-- making function calls on button click,to call the function you have to define the function in the ts file-->
-    <!-- also if you want to use a click event in the file you can use the click keyword as below and call the function as you would in JS-->
-<button (click)="handleClickEvent()">Click Me</button>
-<br><br>
+<!-- making function calls on button click,to call the function you have to define the function in the ts file-->
+<!-- also if you want to use a click event in the file you can use the click keyword as below and call the function as you would in JS-->
+<!-- <button (click)="handleClickEvent()">Click Me</button>
+<br /><br /> -->
 <!-- define Data types in Angular-->
- <!-- using the function in ts the numbers as mirrored in the parameters will be added unless the parameters are not numeric-->
-<button (click)="sum(10,20)">Sum</button>
+<!-- using the function in ts the numbers as mirrored in the parameters will be added unless the parameters are not numeric-->
+<!-- <button (click)="sum(10, 20)">Sum</button> -->
 
 <!-- making a counter app  -->
-<h3>counter app</h3>
-<div style="text-align: center;">
+<!-- <h3>counter app</h3>
+<div style="text-align: center"> -->
   <!-- using interpolation for the count number -->
-  <h3 class="count">{{count}}</h3>
-  <div>
+  <!-- <h3 class="count">{{ count }}</h3>
+  <div> -->
     <!-- <button (click)="handleDecrement()"  class="btn bg-red">Decrement</button>
     <button (click)="handleReset()"  class="btn bg-black">Reset</button>
     <button (click)="handleIncrement()" class="btn bg-green">Increment</button> -->
     <!-- using the function and  its parameters -->
-    <button (click)="handleCounter('minus')"  class="btn bg-red">Decrement</button>
-    <button (click)="handleCounter('reset')"  class="btn bg-black">Reset</button>
-    <button (click)="handleCounter('plus')" class="btn bg-green">Increment</button>
+    <!-- <button (click)="handleCounter('minus')" class="btn bg-red">
+      Decrement
+    </button>
+    <button (click)="handleCounter('reset')" class="btn bg-black">Reset</button>
+    <button (click)="handleCounter('plus')" class="btn bg-green">
+      Increment
+    </button>
   </div>
-</div>
+</div> -->
 
 <!-- get and set input field value using an event whether keyup or keydown but input a dollar sign before the event name-->
- <!-- gets its value on the html as well as the console -->
- <h2>{{username}}</h2>
- <!--  -->
- <!-- setting the value from the ts -->
-<input value="{{username}}"
-(input)="getUserName($event)"
-#userNameField
-
-type="text"
- placeholder="Enter username">
-<br><br>
+<!-- gets its value on the html as well as the console -->
+<!-- <h2>{{ username }}</h2> -->
+<!--  -->
+<!-- setting the value from the ts -->
+<!-- <input
+  value="{{ username }}"
+  (input)="getUserName($event)"
+  #userNameField
+  type="text"
+  placeholder="Enter username"
+/>
+<br /><br /> -->
 <!-- setting the value to be called by the button -->
-<button (click)="setUserName()">Set username</button>
+<!-- <button (click)="setUserName()">Set username</button> -->
 <!-- get input value note on typing by adding one function and creating a template variable -->
-<button (click)="getUserNameWithTemplate(userNameField.value)">Get username</button>
+<!-- <button (click)="getUserNameWithTemplate(userNameField.value)">
+  Get username
+</button>  -->
+
+<!-- IF/Else || Control flow  -->
+<!-- @ is a directive -->
+<!-- @if(val==10){
+<div style="background-color: purple;height: 200px; width: 200px;"></div>
+
+} -->
+<!-- the condition will be defined in the ts file for the component
+<button (click)="hide()">Hide</button>
+<button (click)="show()">Show</button>
+<button (click)="toggle()">Toggle</button> -->
+<!-- another way to use the toggle function with a tenary operator which is used to dynamically change the button label between "show" and "hide", -->
+<!-- <button (click)="toggle()">
+  {{ display ? "hide" : "show" }}
+</button>
+
+@if(display){
+<div style="background-color: green; height: 200px; width: 200px"></div>
+
+}
+<hr />
+<br /> -->
+
+<!-- using if/else with divs -->
+ <!-- <button (click)="toggleDivs()">Toggle divs</button>
+@if(displayOneDiv){
+<div style="background-color: blue; width: 100px; height: 100px"></div>
+} @else{
+<div style="background-color: red; width: 100px; height: 100px"></div>
+} -->
+
 
