@@ -248,14 +248,14 @@ type="text" name="user"
   <h1 style="background-color: green;">Main heading</h1>
 } -->
 <!-- Heading to indicate this example is about ngFor context -->
-<h1>For Loop Contextual Variables</h1>
+<!-- <h1>For Loop Contextual Variables</h1> -->
 
 <!--
   Loop through 'users' array using Angular's @for directive.
   Track each user by identity to improve performance.
   Also define contextual variables for even/odd detection.
 -->
-@for (user of users; track user; let e = $even; let o = $odd) {
+<!-- @for (user of users; track user; let e = $even; let o = $odd) { -->
 
   <!--
     You can also check for $first or $last:
@@ -274,7 +274,7 @@ type="text" name="user"
   -->
 
   <!-- Display users with different background color based on even/odd index -->
-  @if(e) {
+  <!-- @if(e) {
     <h3 style="background-color: #ddd;">
       This is User No {{$index}} and name is {{user}}
     </h3>
@@ -285,8 +285,31 @@ type="text" name="user"
     </h3>
   }
 
-} @empty() {
+} @empty() { -->
   <!-- Fallback message when 'users' array is empty -->
-  <h4>No records found</h4>
-}
+  <!-- <h4>No records found</h4>
+} -->
+
+<!-- Two-way binding using TypeScript and template -->
+
+<!--
+  Binds input to 'name' variable.
+  Updates 'name' in real-time using Angular's ngModel.
+  The syntax [(ngModel)] is known as "banana in a box"
+-->
+<input type="text" [(ngModel)]="name" placeholder="Enter Name" />
+
+<!-- Live display of name as it updates -->
+<h1>{{ name }}</h1>
+
+<!--
+  Manual binding approach using input event (commented out)
+  Requires a method like changeName($event) in the component
+-->
+<!--
+<input type="text" placeholder="Enter Name"
+       (input)="changeName($event)" />
+<h1>{{ name }}</h1>
+-->
+
 

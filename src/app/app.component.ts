@@ -1,5 +1,7 @@
 import { Component , effect,  signal, } from '@angular/core';
 // when using signals remember to import as well
+// import forms module when doing two way binding as well
+import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from '../profile/profile.component';
@@ -10,7 +12,7 @@ import { UserComponent } from './user/user.component';
 @Component({
   selector: 'app-root',
   // for any component to be used, it has to be imported from the app component.
-  // imports: [LoginComponent, SignupComponent, ProfileComponent, UserComponent ],
+  imports: [FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -256,7 +258,18 @@ export class AppComponent {
 
   //  for loop contextual variables
 // array example
-  users=['Anil','Sam','Bruce','Clark','Barry','Diana','Hal','Aang','Obi-Wan']
+  // users=['Anil','Sam','Bruce','Clark','Barry','Diana','Hal','Aang','Obi-Wan']
   // users =[]
+
+
+  // Two-way binding example
+name = "Zebulun";
+
+// Optional alternative: manual binding via event
+// This method updates 'name' based on user input
+// changeName(event: Event) {
+//   const val = (event.target as HTMLInputElement).value;
+//   this.name = val;
+// }
 
 }
