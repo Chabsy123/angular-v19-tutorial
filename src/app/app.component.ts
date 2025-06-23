@@ -147,14 +147,28 @@ export class AppComponent {
 
 
 // for loops(first make an array)
-users=['Anil','Sam','Peter','Clark','Bruce'];
-students = [
-  {name:'Anil', age:23, email:'anil@test.com'},
-  {name:'Sam', age:29, email:'sam@test.com'},
-  {name:'Bruce', age:34, email:'anil@wayne.com'},
-  {name:'Clark', age:43, email:'anil@kent.com'},
-]
-getName(name:string){
- console.log(name);
+// users=['Anil','Sam','Peter','Clark','Bruce'];
+// students = [
+//   {name:'Anil', age:23, email:'anil@test.com'},
+//   {name:'Sam', age:29, email:'sam@test.com'},
+//   {name:'Bruce', age:34, email:'anil@wayne.com'},
+//   {name:'Clark', age:43, email:'anil@kent.com'},
+// ]
+// getName(name:string){
+//  console.log(name);
+// }
+
+// function for an event(any can have unintended consequences)
+handleEvent(event: Event) {
+  // Log the type of event triggered (e.g., click, input)
+  console.log("function called", event.type);
+
+  // Access the 'name' attribute of the input element that triggered the event
+  // Type assertion is used to treat the event target as an HTMLInputElement
+  console.log("function called", (event.target as HTMLInputElement).value);
+// Logs the current value of the input field that triggered the event.
+// Type assertion tells TypeScript that event.target is an HTMLInputElement so we can safely access `.value`, and for multiple events the event will be event type
+
+
 }
 }

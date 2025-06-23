@@ -166,21 +166,50 @@ It says: “When the user types (input event), call the changeColor function and
 | `user of users` | Loop through the `users` array                           |
 | `track user`    | Track each user by identity (like `trackBy` in `*ngFor`) |
  -->
-@for(user of users; track user){
+<!-- @for(user of users; track user){ -->
 <!-- displaying the users array -->
- <h2>{{user}}</h2>
+ <!-- <h2>{{user}}</h2>
  }
-<hr><br><br>
+<hr><br><br> -->
 <!-- the property after the track is a unique identifier which can be defined-->
- @for(student of students; track student.name;let id =$index){
-  <h2>
+ <!-- @for(student of students; track student.name;let id =$index){
+  <h2> -->
     <!-- starting the number from 1 -->
-    <span>{{id+1}}. </span>
+    <!-- <span>{{id+1}}. </span>
   <span>{{student.name}}</span>
   <span>{{student.age}}</span>
   <span>{{student.email}}</span>
   <button (click)="getName(student.name)">Get Name</button>
   </h2>
- }
+ } -->
 
+ <!-- events in Angular -->
+  <!-- the dollar event shows all the details of the event -->
+<h1>Event in Angular</h1>
+<button class="btn" name="login" (click)="handleEvent($event)">Click on button</button>
+<br><br>
+
+<!--
+  This div listens for the 'mouseenter' event (when the user's mouse hovers over it).
+  The event object ($event) is passed to the handleEvent() function in the component.
+-->
+<div (mouseenter)="handleEvent($event)"
+     style="background-color: green; height: 100px; width: 100px;">
+</div>
+<br><br>
+<div (mouseleave)="handleEvent($event)"
+     style="background-color: red; height: 100px; width: 100px;">
+</div>
+<br><br>
+<!-- adding multiple events to a variable -->
+<input
+
+(blur)="handleEvent($event)"
+(focus)="handleEvent($event)"
+ (input)="handleEvent($event)"
+
+type="text" name="user"
+>
+<!-- This input calls the handleEvent() function every time the user types.
+     It sends the input event object ($event) to the function for processing. -->
 
