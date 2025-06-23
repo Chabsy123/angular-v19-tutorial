@@ -235,16 +235,58 @@ type="text" name="user"
    <button (click)="updateXValue()">Update X value</button> -->
 
   <!-- Effects in Angular -->
-<h1>Effect in Angular</h1>
+<!-- <h1>Effect in Angular</h1> -->
 
 <!-- Display current count value -->
-<h1>{{ count() }}</h1>
+<!-- <h1>{{ count() }}</h1> -->
 
 <!-- Button to increment count signal -->
-<button (click)="count.set(count() + 1)">Update userName</button>
+<!-- <button (click)="count.set(count() + 1)">Update userName</button> -->
 
-<!-- Conditionally show heading when displayHeading is true -->
+<!-- Conditionally show heading when displayHeading is true
 @if(displayHeading) {
   <h1 style="background-color: green;">Main heading</h1>
+} -->
+<!-- Heading to indicate this example is about ngFor context -->
+<h1>For Loop Contextual Variables</h1>
+
+<!--
+  Loop through 'users' array using Angular's @for directive.
+  Track each user by identity to improve performance.
+  Also define contextual variables for even/odd detection.
+-->
+@for (user of users; track user; let e = $even; let o = $odd) {
+
+  <!--
+    You can also check for $first or $last:
+    Uncomment below if you want to show special style for first/last user
+  -->
+  <!--
+  @if($first || $last){
+    <h3 style="background-color: green;">
+      This is User no {{$index + 1}} and name is {{user}}
+    </h3>
+  } @else {
+    <h3>
+      This is User no {{$index + 1}} and name is {{user}}
+    </h3>
+  }
+  -->
+
+  <!-- Display users with different background color based on even/odd index -->
+  @if(e) {
+    <h3 style="background-color: #ddd;">
+      This is User No {{$index}} and name is {{user}}
+    </h3>
+  }
+  @if(o) {
+    <h3 style="background-color: gold;">
+      This is User No {{$index}} and name is {{user}}
+    </h3>
+  }
+
+} @empty() {
+  <!-- Fallback message when 'users' array is empty -->
+  <h4>No records found</h4>
 }
 

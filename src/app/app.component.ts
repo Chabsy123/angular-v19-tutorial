@@ -231,29 +231,32 @@ export class AppComponent {
 // Effects in Angular
 
 // Define reactive signals
-userName = signal('anil');        // Not used in this example
-count = signal(0);                // Tracks number of button clicks
-displayHeading = false;          // Controls conditional heading display
+ //userName = signal('anil');        Not used in this example
+// count = signal(0);                Tracks number of button clicks
+//displayHeading = false;           Controls conditional heading display
 
-constructor() {
-  effect(() => {
+// constructor() {
+//   effect(() => {
     // Trigger effect whenever count changes
 
-    if (this.count() === 2) {
+    // if (this.count() === 2) {
       // If count reaches 2, show heading for 2 seconds
-      this.displayHeading = true;
+      // this.displayHeading = true;
 
-      setTimeout(() => {
-        this.displayHeading = false;
-      }, 2000); // Hide after 2000ms = 2 seconds
+      // setTimeout(() => {
+      //   this.displayHeading = false;
+      // }, 2000); // Hide after 2000ms = 2 seconds
 
-    } else {
+    // } else {
       // Otherwise, ensure heading stays hidden
-      this.displayHeading = false;
-    }
-  });
-}
+      // this.displayHeading = false;
+//     }
+//   });
+// }
 
-
+  //  for loop contextual variables
+// array example
+  users=['Anil','Sam','Bruce','Clark','Barry','Diana','Hal','Aang','Obi-Wan']
+  // users =[]
 
 }
