@@ -263,7 +263,7 @@ export class AppComponent {
 
 
   // Two-way binding example
-name = "Zebulun";
+// name = "Zebulun";
 
 // Optional alternative: manual binding via event
 // This method updates 'name' based on user input
@@ -272,4 +272,35 @@ name = "Zebulun";
 //   this.name = val;
 // }
 
+// TO-DO List Component Logic (TypeScript)
+
+task = "meeting by 10AM"; // Bound to the input field using ngModel
+
+// Array to hold the list of tasks
+// Each task is an object with a unique ID and name
+taskList: { id: number, name: string }[] = [];
+
+/**
+ * Adds a new task to the list.
+ * - Creates a task object with an auto-incremented ID
+ * - Uses the current value of the 'task' variable as the task name
+ * - Clears the input field after adding
+ */
+addTask() {
+  this.taskList.push({
+    id: this.taskList.length + 1, // Unique ID based on list length
+    name: this.task               // Task name from input
+  });
+
+  this.task = ""; // Reset input after adding task
+}
+
+/**
+ * Deletes a task from the list by its ID.
+ * - Uses Array.filter() to exclude the selected task
+ * - Updates the task list with the remaining items
+ */
+deleteTask(id: number) {
+  this.taskList = this.taskList.filter(item => item.id !== id);
+}
 }

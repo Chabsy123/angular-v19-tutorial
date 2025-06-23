@@ -297,10 +297,10 @@ type="text" name="user"
   Updates 'name' in real-time using Angular's ngModel.
   The syntax [(ngModel)] is known as "banana in a box"
 -->
-<input type="text" [(ngModel)]="name" placeholder="Enter Name" />
+<!-- <input type="text" [(ngModel)]="name" placeholder="Enter Name" /> -->
 
 <!-- Live display of name as it updates -->
-<h1>{{ name }}</h1>
+<!-- <h1>{{ name }}</h1> -->
 
 <!--
   Manual binding approach using input event (commented out)
@@ -312,4 +312,23 @@ type="text" name="user"
 <h1>{{ name }}</h1>
 -->
 
+<!-- TO-DO List-->
+
+<!-- Input field bound to 'task' using two-way binding -->
+<input [(ngModel)]="task" type="text" placeholder="Enter task name" />
+
+<!-- Button triggers addTask() method on click -->
+<button (click)="addTask()">Add Task</button>
+
+<!-- Loop through taskList using @for and track by ID -->
+@for (task of taskList; track task.id) {
+  <ul class="task-list">
+    <!-- Display task ID and name -->
+    <li>{{ task.id }}</li>
+    <li>{{ task.name }}</li>
+
+    <!-- Button to delete specific task by ID -->
+    <li><button (click)="deleteTask(task.id)">Delete</button></li>
+  </ul>
+}
 

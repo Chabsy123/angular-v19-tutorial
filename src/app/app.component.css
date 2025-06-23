@@ -37,3 +37,10 @@ h1{
   color: red;
   background-color: orange;
 }
+
+
+.task-list{
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
