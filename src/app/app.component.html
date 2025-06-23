@@ -228,11 +228,23 @@ type="text" name="user"
   <!-- <h2>{{counts()}}</h2> -->
 
   <!-- computed signals -->
-<h1>Computed signals</h1>
+<!-- <h1>Computed signals</h1>
  <h1>{{z()}}</h1>
    <button (click)="updateValue()">Update value</button>
 
-   <button (click)="updateXValue()">Update X value</button>
+   <button (click)="updateXValue()">Update X value</button> -->
 
+  <!-- Effects in Angular -->
+<h1>Effect in Angular</h1>
 
+<!-- Display current count value -->
+<h1>{{ count() }}</h1>
+
+<!-- Button to increment count signal -->
+<button (click)="count.set(count() + 1)">Update userName</button>
+
+<!-- Conditionally show heading when displayHeading is true -->
+@if(displayHeading) {
+  <h1 style="background-color: green;">Main heading</h1>
+}
 

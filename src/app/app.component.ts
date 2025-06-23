@@ -1,4 +1,4 @@
-import { Component, computed, effect, Signal, signal, WritableSignal } from '@angular/core';
+import { Component , effect,  signal, } from '@angular/core';
 // when using signals remember to import as well
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -213,19 +213,47 @@ export class AppComponent {
   // data = computed(()=>21)
   // count = signal(20)
 
-  x= signal(20);
-  y= signal(30);
-  z= computed(()=>this.x()+this.y());
+  // x= signal(20);
+  // y= signal(30);
+  // z= computed(()=>this.x()+this.y());
 // computed or read only signals cannot be updated directly
-  updateValue(){
+  // updateValue(){
 
-   console.log(this.z());
+  //  console.log(this.z());
   //  updating the signal
-   this.y.set(100);
+  //  this.y.set(100);
   //  the updated value has no impact on the z unless with the use of computed signals as seen above
-   console.log(this.z());
-  }
-  updateXValue(){
-    this.x.set(1000)
-  }
+  //  console.log(this.z());
+  // }
+  // updateXValue(){
+  //   this.x.set(1000)
+  // }
+// Effects in Angular
+
+// Define reactive signals
+userName = signal('anil');        // Not used in this example
+count = signal(0);                // Tracks number of button clicks
+displayHeading = false;          // Controls conditional heading display
+
+constructor() {
+  effect(() => {
+    // Trigger effect whenever count changes
+
+    if (this.count() === 2) {
+      // If count reaches 2, show heading for 2 seconds
+      this.displayHeading = true;
+
+      setTimeout(() => {
+        this.displayHeading = false;
+      }, 2000); // Hide after 2000ms = 2 seconds
+
+    } else {
+      // Otherwise, ensure heading stays hidden
+      this.displayHeading = false;
+    }
+  });
+}
+
+
+
 }
