@@ -173,39 +173,59 @@ export class AppComponent {
 
 // signals in Angular part
 // data = 100;
-count = signal(10);
+// count = signal(10);
 // prints data value or count value in the console
-constructor(){
-  effect(()=>{
-    console.log(this.count());
-  })
-}
+// constructor(){
+//   effect(()=>{
+//     console.log(this.count());
+//   })
+// }
 // basic increment and decrement with the help of signal
-updateValue(val:string){
+// updateValue(val:string){
   // updating normal value
   // this.data = 200
   // updating a signal is not the same way basically.It can be whatever is in the set parameter
   // this.count.set(1000)
 
-  if(val == 'dec'){
-   this.count.set(this.count() - 1)
-  }else{
-    this.count.set(this.count() + 1)
-  }
-}
+//   if(val == 'dec'){
+//    this.count.set(this.count() - 1)
+//   }else{
+//     this.count.set(this.count() + 1)
+//   }
+// }
 // data types with signals
 // to make it contain different data type in a signal
   // data2 = signal<number | string>(10)
   // another way to do it using writable signals using pipes
-  data2: WritableSignal<number>= signal(10)
+  // data2: WritableSignal<number>= signal(10)
   // you can also use computed signals as well
-  counts: Signal<number>=computed(()=>243)
+  // counts: Signal<number>=computed(()=>243)
   // how to define data types with signals
 
-  updateValues(){
+  // updateValues(){
     // updating it to a string or number
     // this.data2.set(true)
     // when updating like this using the update method unlike set method it accepts just one data type
-    this.data2.update(val=>val+10)
+  //   this.data2.update(val=>val+10)
+  // }
+
+  // computed signals
+  // data = computed(()=>21)
+  // count = signal(20)
+
+  x= signal(20);
+  y= signal(30);
+  z= computed(()=>this.x()+this.y());
+// computed or read only signals cannot be updated directly
+  updateValue(){
+
+   console.log(this.z());
+  //  updating the signal
+   this.y.set(100);
+  //  the updated value has no impact on the z unless with the use of computed signals as seen above
+   console.log(this.z());
+  }
+  updateXValue(){
+    this.x.set(1000)
   }
 }

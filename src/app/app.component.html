@@ -216,14 +216,23 @@ type="text" name="user"
 <!-- signals in angular -->
  <!-- <h1>{{data}}</h1> -->
 <!-- have to use it as a function value or else it wont display -->
-<button (click)="updateValue('dec')">Decrement </button>
+<!-- <button (click)="updateValue('dec')">Decrement </button>
 <h2>{{count()}}</h2>
- <button (click)="updateValue('inc')">Increment </button>
+ <button (click)="updateValue('inc')">Increment </button> -->
 
  <!-- data types with signals -->
-  <h2>{{data2()}}</h2>
+  <!-- <h2>{{data2()}}</h2>
   <button (click)="updateValues()">Update</button>
 
-  <br><hr>
+  <br><hr> -->
   <!-- <h2>{{counts()}}</h2> -->
+
+  <!-- computed signals -->
+<h1>Computed signals</h1>
+ <h1>{{z()}}</h1>
+   <button (click)="updateValue()">Update value</button>
+
+   <button (click)="updateXValue()">Update X value</button>
+
+
 
