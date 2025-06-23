@@ -110,7 +110,7 @@
 <button (click)="hide()">Hide</button>
 <button (click)="show()">Show</button>
 <button (click)="toggle()">Toggle</button> -->
-<!-- another way to use the toggle function with a tenary operator which is used to dynamically change the button label between "show" and "hide", -->
+<!-- another way to use the toggle function with a ternary operator which is used to dynamically change the button label between "show" and "hide", -->
 <!-- <button (click)="toggle()">
   {{ display ? "hide" : "show" }}
 </button>
@@ -185,31 +185,45 @@ It says: “When the user types (input event), call the changeColor function and
 
  <!-- events in Angular -->
   <!-- the dollar event shows all the details of the event -->
-<h1>Event in Angular</h1>
+<!-- <h1>Event in Angular</h1>
 <button class="btn" name="login" (click)="handleEvent($event)">Click on button</button>
-<br><br>
+<br><br> -->
 
 <!--
   This div listens for the 'mouseenter' event (when the user's mouse hovers over it).
   The event object ($event) is passed to the handleEvent() function in the component.
 -->
-<div (mouseenter)="handleEvent($event)"
+<!-- <div (mouseenter)="handleEvent($event)"
      style="background-color: green; height: 100px; width: 100px;">
 </div>
 <br><br>
 <div (mouseleave)="handleEvent($event)"
      style="background-color: red; height: 100px; width: 100px;">
 </div>
-<br><br>
+<br><br> -->
 <!-- adding multiple events to a variable -->
-<input
+<!-- <input
 
 (blur)="handleEvent($event)"
 (focus)="handleEvent($event)"
  (input)="handleEvent($event)"
 
 type="text" name="user"
->
+> -->
 <!-- This input calls the handleEvent() function every time the user types.
      It sends the input event object ($event) to the function for processing. -->
+
+<!-- signals in angular -->
+ <!-- <h1>{{data}}</h1> -->
+<!-- have to use it as a function value or else it wont display -->
+<button (click)="updateValue('dec')">Decrement </button>
+<h2>{{count()}}</h2>
+ <button (click)="updateValue('inc')">Increment </button>
+
+ <!-- data types with signals -->
+  <h2>{{data2()}}</h2>
+  <button (click)="updateValues()">Update</button>
+
+  <br><hr>
+  <!-- <h2>{{counts()}}</h2> -->
 

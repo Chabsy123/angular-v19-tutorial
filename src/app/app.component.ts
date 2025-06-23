@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, computed, effect, Signal, signal, WritableSignal } from '@angular/core';
+// when using signals remember to import as well
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from '../profile/profile.component';
@@ -159,16 +160,52 @@ export class AppComponent {
 // }
 
 // function for an event(any can have unintended consequences)
-handleEvent(event: Event) {
+// handleEvent(event: Event) {
   // Log the type of event triggered (e.g., click, input)
-  console.log("function called", event.type);
+  // console.log("function called", event.type);
 
   // Access the 'name' attribute of the input element that triggered the event
   // Type assertion is used to treat the event target as an HTMLInputElement
-  console.log("function called", (event.target as HTMLInputElement).value);
+  // console.log("function called", (event.target as HTMLInputElement).value);
 // Logs the current value of the input field that triggered the event.
 // Type assertion tells TypeScript that event.target is an HTMLInputElement so we can safely access `.value`, and for multiple events the event will be event type
 
 
+// signals in Angular part
+// data = 100;
+count = signal(10);
+// prints data value or count value in the console
+constructor(){
+  effect(()=>{
+    console.log(this.count());
+  })
 }
+// basic increment and decrement with the help of signal
+updateValue(val:string){
+  // updating normal value
+  // this.data = 200
+  // updating a signal is not the same way basically.It can be whatever is in the set parameter
+  // this.count.set(1000)
+
+  if(val == 'dec'){
+   this.count.set(this.count() - 1)
+  }else{
+    this.count.set(this.count() + 1)
+  }
+}
+// data types with signals
+// to make it contain different data type in a signal
+  // data2 = signal<number | string>(10)
+  // another way to do it using writable signals using pipes
+  data2: WritableSignal<number>= signal(10)
+  // you can also use computed signals as well
+  counts: Signal<number>=computed(()=>243)
+  // how to define data types with signals
+
+  updateValues(){
+    // updating it to a string or number
+    // this.data2.set(true)
+    // when updating like this using the update method unlike set method it accepts just one data type
+    this.data2.update(val=>val+10)
+  }
 }
