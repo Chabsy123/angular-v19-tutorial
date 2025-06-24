@@ -10,6 +10,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls:['./button.style.css','./user.component.css']
 })
 export class UserComponent {
+   // Properties to hold dynamic route parameters from the URL (e.g., /user/:id/:name)
+  // Initialized as empty strings ("") to avoid 'undefined' errors in the template
+  // and ensure safe rendering before ngOnInit assigns real values.
   name:string|null="";
   id:string|null="";
   constructor( private route:ActivatedRoute){

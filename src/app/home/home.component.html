@@ -8,3 +8,19 @@
     </a>
   </li>
 }
+<br><br>
+<!-- Example: Navigate to Profile with optional state or query params -->
+<!-- These examples show how to pass route parameters using objects -->
+<!-- Uncomment below to pass name via routerLink state -->
+<!--
+<a [routerLink]="['profile', { name: 'Anil Seth' }]">Go To Profile Page</a>
+<a [routerLink]="['profile', { name: 'Peter' }]">Go To Profile Page</a>
+-->
+
+<!-- Default navigation to Profile page without passing any params -->
+<a routerLink="profile">Go To Profile</a>
+
+<!-- Uncomment to use programmatic navigation via router.navigate() -->
+<!--
+<button (click)="goToProfile()">Go To Profile Page</button>
+-->
