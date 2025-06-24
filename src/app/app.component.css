@@ -7,7 +7,7 @@
   color: #fff;
 } */
 
-.bg-red{
+/* .bg-red{
   background-color: red;
 }
 .bg-green{
@@ -19,9 +19,9 @@
 .btn:hover{
   border: 1px solid white;
   cursor: pointer;
-}
+} */
 
-.count{
+/* .count{
   font-size: 30px;
   margin: auto;
   margin-bottom: 20px;
@@ -30,17 +30,17 @@
   text-align: center;
   padding: 10px;
   border-radius: 10px;
-}
+} */
 
 /* this css component is relative to the app component only and not applicable to the nested component, you must use the applicable component.css file to  style it */
-h1{
+/* h1{
   color: red;
   background-color: orange;
-}
+} */
 
 
-.task-list{
+/* .task-list{
   display: flex;
   justify-content: space-between;
   list-style: none;
-}
+} */

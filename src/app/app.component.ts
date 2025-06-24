@@ -274,11 +274,11 @@ export class AppComponent {
 
 // TO-DO List Component Logic (TypeScript)
 
-task = "meeting by 10AM"; // Bound to the input field using ngModel
+// task = "meeting by 10AM"; // Bound to the input field using ngModel
 
 // Array to hold the list of tasks
 // Each task is an object with a unique ID and name
-taskList: { id: number, name: string }[] = [];
+// taskList: { id: number, name: string }[] = [];
 
 /**
  * Adds a new task to the list.
@@ -286,21 +286,32 @@ taskList: { id: number, name: string }[] = [];
  * - Uses the current value of the 'task' variable as the task name
  * - Clears the input field after adding
  */
-addTask() {
-  this.taskList.push({
-    id: this.taskList.length + 1, // Unique ID based on list length
-    name: this.task               // Task name from input
-  });
-
-  this.task = ""; // Reset input after adding task
-}
+// addTask() {
+//   this.taskList.push({
+//     id: this.taskList.length + 1, // Unique ID based on list length
+    // name: this.task               // Task name from input
+  // });
+//
+  // this.task = ""; // Reset input after adding task
+// }
 
 /**
  * Deletes a task from the list by its ID.
  * - Uses Array.filter() to exclude the selected task
  * - Updates the task list with the remaining items
  */
-deleteTask(id: number) {
-  this.taskList = this.taskList.filter(item => item.id !== id);
+// deleteTask(id: number) {
+//   this.taskList = this.taskList.filter(item => item.id !== id);
+// }
+
+// Dynamic styling
+color="green";
+fontSizeNormal ="20px"
+fontSizeBig ="60px"
+size=30
+
+zoom=true;
+zoomToggle(){
+  this.zoom = !this.zoom;
 }
 }

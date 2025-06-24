@@ -315,20 +315,36 @@ type="text" name="user"
 <!-- TO-DO List-->
 
 <!-- Input field bound to 'task' using two-way binding -->
-<input [(ngModel)]="task" type="text" placeholder="Enter task name" />
+<!-- <input [(ngModel)]="task" type="text" placeholder="Enter task name" /> -->
 
 <!-- Button triggers addTask() method on click -->
-<button (click)="addTask()">Add Task</button>
+<!-- <button (click)="addTask()">Add Task</button> -->
 
 <!-- Loop through taskList using @for and track by ID -->
-@for (task of taskList; track task.id) {
+<!-- @for (task of taskList; track task.id) {
   <ul class="task-list">
-    <!-- Display task ID and name -->
-    <li>{{ task.id }}</li>
-    <li>{{ task.name }}</li>
+    Display task ID and name
+    <li>{{ task.id }}</li> -->
+    <!-- <li>{{ task.name }}</li> -->
 
     <!-- Button to delete specific task by ID -->
-    <li><button (click)="deleteTask(task.id)">Delete</button></li>
+    <!-- <li><button (click)="deleteTask(task.id)">Delete</button></li>
   </ul>
-}
+} -->
 
+<!-- Dynamic Styling -->
+ <!-- simple style -->
+ <!-- <h1 style="background-color: red;">Dynamic Style</h1> -->
+  <!-- from the ts file styling -->
+  <h1 [style.backgroundColor]="color" [style.fontSize]="fontSizeNormal">Heading Tag</h1>
+  <!-- can also be used like this -->
+  <h1 [style.color]="color">Heading Tag</h1>
+  <!-- applying a style conditionally -->
+    <!-- <h1 [style.fontSize]="'20px'">Heading tag 2</h1> -->
+    <!-- OR -->
+    <!-- <h1 [style.fontSize]="fontSizeNormal">Heading tag 2</h1> -->
+     <!-- using a conditional ternary operator -->
+    <h1 [style.fontSize]="zoom ? fontSizeBig :fontSizeNormal">Heading tag 2</h1>
+    <button (click)="zoomToggle()">Zoom Toggle</button>
+    <!-- the style .px means whatever value will be in pixels and pt means percentage -->
+    <h1 [style.fontSize.px]="size">Heading tag 3</h1>
