@@ -12,7 +12,7 @@
 <h2>Double Curly braces are a must in interpolation</h2>
 <!- below are interpolation examples -->
 <!-- <h2>{{ title }}</h2> -->
- <!-- js method executing it to uppercase inside the html code
+<!-- js method executing it to uppercase inside the html code
 <h2>{{ "hello".toUpperCase() }}</h2>
 <h2>{{ 10 == 10 }}</h2> -->
 <!-- can also be used to compare values from the ts file -->
@@ -63,14 +63,14 @@
 <!-- making a counter app  -->
 <!-- <h3>counter app</h3>
 <div style="text-align: center"> -->
-  <!-- using interpolation for the count number -->
-  <!-- <h3 class="count">{{ count }}</h3>
+<!-- using interpolation for the count number -->
+<!-- <h3 class="count">{{ count }}</h3>
   <div> -->
-    <!-- <button (click)="handleDecrement()"  class="btn bg-red">Decrement</button>
+<!-- <button (click)="handleDecrement()"  class="btn bg-red">Decrement</button>
     <button (click)="handleReset()"  class="btn bg-black">Reset</button>
     <button (click)="handleIncrement()" class="btn bg-green">Increment</button> -->
-    <!-- using the function and  its parameters -->
-    <!-- <button (click)="handleCounter('minus')" class="btn bg-red">
+<!-- using the function and  its parameters -->
+<!-- <button (click)="handleCounter('minus')" class="btn bg-red">
       Decrement
     </button>
     <button (click)="handleCounter('reset')" class="btn bg-black">Reset</button>
@@ -123,7 +123,7 @@
 <br /> -->
 
 <!-- using if/else with divs -->
- <!-- <button (click)="toggleDivs()">Toggle divs</button>
+<!-- <button (click)="toggleDivs()">Toggle divs</button>
 @if(displayOneDiv){
 <div style="background-color: blue; width: 100px; height: 100px"></div>
 } @else{
@@ -131,14 +131,14 @@
 } -->
 
 <!-- switch case in angular 19 -->
- <!-- <button (click)="handleColor('red')">Red</button>
+<!-- <button (click)="handleColor('red')">Red</button>
  <button (click)="handleColor('blue')">Blue</button>
  <button (click)="handleColor('green')">Green</button>
  <button (click)="handleColor('gold')">Gold</button> -->
 <!-- (input)="changeColor($event)" sets up an event binding:
 
 It says: “When the user types (input event), call the changeColor function and pass the event object ($event) to it.” -->
- <!-- <input type="text" placeholder="Enter color"  (input)="changeColor($event)">
+<!-- <input type="text" placeholder="Enter color"  (input)="changeColor($event)">
  @switch (color) {
 
    @case ('red') {
@@ -159,8 +159,8 @@ It says: “When the user types (input event), call the changeColor function and
 } -->
 
 <!-- for loops -->
- <!-- to display the array from the ts file you can either use single statement <h1>{{users[0]}}</h1> or a for loop -->
-  <!-- | Part            | Meaning                                                  |
+<!-- to display the array from the ts file you can either use single statement <h1>{{users[0]}}</h1> or a for loop -->
+<!-- | Part            | Meaning                                                  |
 | --------------- | -------------------------------------------------------- |
 | `@for`          | Loop directive (new Angular syntax)                      |
 | `user of users` | Loop through the `users` array                           |
@@ -168,14 +168,14 @@ It says: “When the user types (input event), call the changeColor function and
  -->
 <!-- @for(user of users; track user){ -->
 <!-- displaying the users array -->
- <!-- <h2>{{user}}</h2>
+<!-- <h2>{{user}}</h2>
  }
 <hr><br><br> -->
 <!-- the property after the track is a unique identifier which can be defined-->
- <!-- @for(student of students; track student.name;let id =$index){
+<!-- @for(student of students; track student.name;let id =$index){
   <h2> -->
-    <!-- starting the number from 1 -->
-    <!-- <span>{{id+1}}. </span>
+<!-- starting the number from 1 -->
+<!-- <span>{{id+1}}. </span>
   <span>{{student.name}}</span>
   <span>{{student.age}}</span>
   <span>{{student.email}}</span>
@@ -183,8 +183,8 @@ It says: “When the user types (input event), call the changeColor function and
   </h2>
  } -->
 
- <!-- events in Angular -->
-  <!-- the dollar event shows all the details of the event -->
+<!-- events in Angular -->
+<!-- the dollar event shows all the details of the event -->
 <!-- <h1>Event in Angular</h1>
 <button class="btn" name="login" (click)="handleEvent($event)">Click on button</button>
 <br><br> -->
@@ -214,27 +214,27 @@ type="text" name="user"
      It sends the input event object ($event) to the function for processing. -->
 
 <!-- signals in angular -->
- <!-- <h1>{{data}}</h1> -->
+<!-- <h1>{{data}}</h1> -->
 <!-- have to use it as a function value or else it wont display -->
 <!-- <button (click)="updateValue('dec')">Decrement </button>
 <h2>{{count()}}</h2>
  <button (click)="updateValue('inc')">Increment </button> -->
 
- <!-- data types with signals -->
-  <!-- <h2>{{data2()}}</h2>
+<!-- data types with signals -->
+<!-- <h2>{{data2()}}</h2>
   <button (click)="updateValues()">Update</button>
 
   <br><hr> -->
-  <!-- <h2>{{counts()}}</h2> -->
+<!-- <h2>{{counts()}}</h2> -->
 
-  <!-- computed signals -->
+<!-- computed signals -->
 <!-- <h1>Computed signals</h1>
  <h1>{{z()}}</h1>
    <button (click)="updateValue()">Update value</button>
 
    <button (click)="updateXValue()">Update X value</button> -->
 
-  <!-- Effects in Angular -->
+<!-- Effects in Angular -->
 <!-- <h1>Effect in Angular</h1> -->
 
 <!-- Display current count value -->
@@ -257,11 +257,11 @@ type="text" name="user"
 -->
 <!-- @for (user of users; track user; let e = $even; let o = $odd) { -->
 
-  <!--
+<!--
     You can also check for $first or $last:
     Uncomment below if you want to show special style for first/last user
   -->
-  <!--
+<!--
   @if($first || $last){
     <h3 style="background-color: green;">
       This is User no {{$index + 1}} and name is {{user}}
@@ -273,8 +273,8 @@ type="text" name="user"
   }
   -->
 
-  <!-- Display users with different background color based on even/odd index -->
-  <!-- @if(e) {
+<!-- Display users with different background color based on even/odd index -->
+<!-- @if(e) {
     <h3 style="background-color: #ddd;">
       This is User No {{$index}} and name is {{user}}
     </h3>
@@ -286,8 +286,8 @@ type="text" name="user"
   }
 
 } @empty() { -->
-  <!-- Fallback message when 'users' array is empty -->
-  <!-- <h4>No records found</h4>
+<!-- Fallback message when 'users' array is empty -->
+<!-- <h4>No records found</h4>
 } -->
 
 <!-- Two-way binding using TypeScript and template -->
@@ -325,26 +325,52 @@ type="text" name="user"
   <ul class="task-list">
     Display task ID and name
     <li>{{ task.id }}</li> -->
-    <!-- <li>{{ task.name }}</li> -->
+<!-- <li>{{ task.name }}</li> -->
 
-    <!-- Button to delete specific task by ID -->
-    <!-- <li><button (click)="deleteTask(task.id)">Delete</button></li>
+<!-- Button to delete specific task by ID -->
+<!-- <li><button (click)="deleteTask(task.id)">Delete</button></li>
   </ul>
 } -->
 
 <!-- Dynamic Styling -->
- <!-- simple style -->
- <!-- <h1 style="background-color: red;">Dynamic Style</h1> -->
-  <!-- from the ts file styling -->
-  <h1 [style.backgroundColor]="color" [style.fontSize]="fontSizeNormal">Heading Tag</h1>
-  <!-- can also be used like this -->
-  <h1 [style.color]="color">Heading Tag</h1>
-  <!-- applying a style conditionally -->
-    <!-- <h1 [style.fontSize]="'20px'">Heading tag 2</h1> -->
-    <!-- OR -->
-    <!-- <h1 [style.fontSize]="fontSizeNormal">Heading tag 2</h1> -->
-     <!-- using a conditional ternary operator -->
-    <h1 [style.fontSize]="zoom ? fontSizeBig :fontSizeNormal">Heading tag 2</h1>
-    <button (click)="zoomToggle()">Zoom Toggle</button>
-    <!-- the style .px means whatever value will be in pixels and pt means percentage -->
-    <h1 [style.fontSize.px]="size">Heading tag 3</h1>
+<!-- simple style -->
+<!-- <h1 style="background-color: red;">Dynamic Style</h1> -->
+<!-- from the ts file styling -->
+<!-- <h1 [style.backgroundColor]="color" [style.fontSize]="fontSizeNormal">Heading Tag</h1> -->
+<!-- can also be used like this -->
+<!-- <h1 [style.color]="color">Heading Tag</h1> -->
+<!-- applying a style conditionally -->
+<!-- <h1 [style.fontSize]="'20px'">Heading tag 2</h1> -->
+<!-- OR -->
+<!-- <h1 [style.fontSize]="fontSizeNormal">Heading tag 2</h1> -->
+<!-- using a conditional ternary operator -->
+<!-- <h1 [style.fontSize]="zoom ? fontSizeBig :fontSizeNormal">Heading tag 2</h1>
+    <button (click)="zoomToggle()">Zoom Toggle</button> -->
+<!-- the style .px means whatever value will be in pixels and pt means percentage -->
+<!-- <h1 [style.fontSize.px]="size">Heading tag 3</h1> -->
+
+<!-- Directives in Angular -->
+<!-- to hide and show an element as defined and imported in the ts file-->
+<!-- Conditionally show heading if 'show' is true -->
+<h1 *ngIf="show">Heading Tag</h1>
+
+<!-- Title for ngFor directive demonstration -->
+<h1>*ngFor Angular Directives</h1>
+
+<!-- Loop through student name array and display each -->
+<ul>
+  <li *ngFor="let student of students">
+    {{ student }}
+  </li>
+</ul>
+
+<hr>
+
+<!-- Loop through studentData object array -->
+<!-- Display each student's name, age, and email -->
+<ul>
+  <li *ngFor="let student of studentData">
+    {{ student.name }}, {{ student.age }}, {{ student.email }}
+  </li>
+</ul>
+
