@@ -1,1 +1,10 @@
-<h1>home page!</h1>
+<h1>User List</h1>
+
+<!-- Loop through users and generate dynamic links using user ID and name -->
+@for (user of users; track user.id) {
+  <li>
+    <a routerLink="user/{{user.id}}/{{user.name}}">
+      {{ user.name }}
+    </a>
+  </li>
+}
