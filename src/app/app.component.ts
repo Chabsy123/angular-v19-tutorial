@@ -353,4 +353,26 @@ studentData = [
   },
 ];
 
+// NgIf directive examples
+
+shows = true;     // Controls visibility of Heading 1
+block = 1;        // Controls which numbered heading is shown
+login = false;    // Tracks login state for toggle logic
+
+// Toggles the visibility of the first heading
+toggle() {
+  this.shows = !this.shows;
+}
+
+// Cycles through block values (1 → 2 → 3 → 4...)
+updateBlockVal() {
+  this.block++;
+}
+
+// Toggles login state to switch between Login and Logout buttons
+loginToggle() {
+  this.login = !this.login;
+}
+
+
 }
