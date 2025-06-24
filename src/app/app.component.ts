@@ -6,7 +6,7 @@ import { Component, effect, signal, } from '@angular/core';
 // import { SignupComponent } from './signup/signup.component';
 // import { ProfileComponent } from '../profile/profile.component';
 // import { UserComponent } from './user/user.component';
-import { NgFor, NgIf } from '@angular/common';
+import {  NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 
 // import { RouterOutlet } from '@angular/router';
 
@@ -14,7 +14,7 @@ import { NgFor, NgIf } from '@angular/common';
   selector: 'app-root',
   // for any component to be used, it has to be imported from the app component.
   // for directives, depending on the one you want to use import them as well
-  imports: [NgIf, NgFor],
+  imports: [ NgSwitch, NgSwitchCase, NgSwitchDefault],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -319,60 +319,66 @@ export class AppComponent {
 
   // Directives In Angular
   // defining show to be true or false to display the element on the page as a structural directive
-  show = true
+//   show = true
 
  // Simple list of student names for string-based display
-students = ["Anil", "Beetroot", "Peter", "Bruce", "Hestia"];
+// students = ["Anil", "Beetroot", "Peter", "Bruce", "Hestia"];
 
 // List of student objects with name, age, and email
-studentData = [
-  {
-    name: 'anil',
-    age: 30,
-    email: 'anil@test.com'
-  },
-  {
-    name: 'Sam',
-    age: 39,
-    email: 'Sam@test.com'
-  },
-  {
-    name: 'Bruce',
-    age: 20,
-    email: 'Bruce@test.com'
-  },
-  {
-    name: 'Hestia',
-    age: 22,
-    email: 'hestia@test.com'
-  },
-  {
-    name: 'Peter',
-    age: 25,
-    email: 'Peter@test.com'
-  },
-];
+// studentData = [
+//   {
+//     name: 'anil',
+//     age: 30,
+//     email: 'anil@test.com'
+//   },
+//   {
+//     name: 'Sam',
+//     age: 39,
+//     email: 'Sam@test.com'
+//   },
+//   {
+//     name: 'Bruce',
+//     age: 20,
+//     email: 'Bruce@test.com'
+//   },
+//   {
+//     name: 'Hestia',
+//     age: 22,
+//     email: 'hestia@test.com'
+//   },
+//   {
+//     name: 'Peter',
+//     age: 25,
+//     email: 'Peter@test.com'
+//   },
+// ];
 
 // NgIf directive examples
 
-shows = true;     // Controls visibility of Heading 1
-block = 1;        // Controls which numbered heading is shown
-login = false;    // Tracks login state for toggle logic
+// shows = true;     // Controls visibility of Heading 1
+// block = 1;        // Controls which numbered heading is shown
+// login = false;    // Tracks login state for toggle logic
 
 // Toggles the visibility of the first heading
-toggle() {
-  this.shows = !this.shows;
-}
+// toggle() {
+//   this.shows = !this.shows;
+// }
 
 // Cycles through block values (1 → 2 → 3 → 4...)
-updateBlockVal() {
-  this.block++;
+// updateBlockVal() {
+//   this.block++;
+// }
+
+ // Toggles login state to switch between Login and Logout buttons
+// loginToggle() {
+//   this.login = !this.login;
+// }
+
+// switch directive
+// showing one color at a time with conditions(whichever color is shown here will show on the output as well unless it is not defined in the html template in this case "black")
+color="black"
+
+changeColor(color:string){
+   this.color = color;
 }
-
-// Toggles login state to switch between Login and Logout buttons
-loginToggle() {
-  this.login = !this.login;
-}
-
-
 }

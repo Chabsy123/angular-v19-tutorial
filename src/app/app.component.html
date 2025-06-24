@@ -352,49 +352,64 @@ type="text" name="user"
 <!-- Directives in Angular -->
 <!-- to hide and show an element as defined and imported in the ts file-->
 <!-- Conditionally show heading if 'show' is true -->
-<h1 *ngIf="show">Heading Tag</h1>
+<!-- <h1 *ngIf="show">Heading Tag</h1> -->
 
 <!-- Title for ngFor directive demonstration -->
-<h1>*ngFor Angular Directives</h1>
+<!-- <h1>*ngFor Angular Directives</h1> -->
 
 <!-- Loop through student name array and display each -->
-<ul>
+<!-- <ul>
   <li *ngFor="let student of students">
     {{ student }}
   </li>
 </ul>
 
-<hr>
+<hr> -->
 
 <!-- Loop through studentData object array -->
 <!-- Display each student's name, age, and email -->
-<ul>
+<!-- <ul>
   <li *ngFor="let student of studentData">
     {{ student.name }}, {{ student.age }}, {{ student.email }}
   </li>
-</ul>
+</ul> -->
 
 <!-- NgIf Directives -->
 
 <!-- Displays heading only if 'shows' is true -->
-<h1 *ngIf="shows">Heading 1</h1>
-<button (click)="toggle()">Toggle Heading</button>
+<!-- <h1 *ngIf="shows">Heading 1</h1>
+<button (click)="toggle()">Toggle Heading</button> -->
 
 <!-- Display one specific heading based on block value -->
-<h1 *ngIf="block == 1">Heading 1</h1>
+<!-- <h1 *ngIf="block == 1">Heading 1</h1>
 <h1 *ngIf="block == 2">Heading 2</h1>
 <h1 *ngIf="block == 3">Heading 3</h1>
-<h1 *ngIf="block == 4">Heading 4</h1>
+<h1 *ngIf="block == 4">Heading 4</h1> -->
 
 <!-- Button to increment the block number -->
-<button (click)="updateBlockVal()">Update Heading</button>
+<!-- <button (click)="updateBlockVal()">Update Heading</button>
 
-<br /><br />
+<br /><br /> -->
 
 <!-- Show one button at a time using ngIf and ng-template -->
 <!-- Only Logout is shown when login is true, otherwise Login -->
-<button *ngIf="login; else elseBlock" (click)="loginToggle()">Logout</button>
+<!-- <button *ngIf="login; else elseBlock" (click)="loginToggle()">Logout</button>
 <ng-template #elseBlock>
   <button (click)="loginToggle()">Login</button>
-</ng-template>
+</ng-template> -->
 
+<!-- switch directive -->
+ <button (click)="changeColor('red')">Red Color</button>
+ <button (click)="changeColor('green')">Green Color</button>
+ <button (click)="changeColor('blue')">Blue Color</button>
+ <button (click)="changeColor('pink')">Pink Color</button>
+ <button (click)="changeColor('yellow')">Yellow Color</button>
+ <div [ngSwitch]="color">
+ <h1 *ngSwitchCase="'red'" style="background-color: red;">Red Color</h1>
+  <h1 *ngSwitchCase="'green'" style="background-color: green;">Green Color</h1>
+ <h1 *ngSwitchCase="'blue'" style="background-color: blue;">Blue Color</h1>
+ <h1 *ngSwitchCase="'pink'" style="background-color: pink;">Pink Color</h1>
+ <h1 *ngSwitchCase="'yellow'" style="background-color: yellow;">Yellow Color</h1>
+ <h1 *ngSwitchDefault >No Color Matched</h1>
+
+</div>
