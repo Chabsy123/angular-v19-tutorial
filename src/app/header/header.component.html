@@ -1,0 +1,33 @@
+<!-- Basic Routing in Angular -->
+ <!-- make the links as well -->
+ <!-- Navigation bar with router links -->
+<nav>
+  <h2>Logo</h2>
+
+  <ul>
+    <!-- 
+      'routerLink' sets the target route.
+      'routerLinkActive' applies the 'active' class when the link is active.
+      'routerLinkActiveOptions' with exact:true ensures the class only applies when the path exactly matches '/'
+    -->
+    <li>
+      <a 
+        [routerLinkActiveOptions]="{ exact: true }" 
+        routerLinkActive="active" 
+        routerLink="/">
+        Home
+      </a>
+    </li>
+
+    <!-- Other routes apply 'active' class when matched -->
+    <li>
+      <a routerLinkActive="active" routerLink="login">Login</a>
+    </li>
+    <li>
+      <a routerLinkActive="active" routerLink="about">About</a>
+    </li>
+    <li>
+      <a routerLinkActive="active" routerLink="contact">Contact</a>
+    </li>
+  </ul>
+</nav>

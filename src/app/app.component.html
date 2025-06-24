@@ -398,18 +398,29 @@ type="text" name="user"
   <button (click)="loginToggle()">Login</button>
 </ng-template> -->
 
-<!-- switch directive -->
- <button (click)="changeColor('red')">Red Color</button>
- <button (click)="changeColor('green')">Green Color</button>
- <button (click)="changeColor('blue')">Blue Color</button>
- <button (click)="changeColor('pink')">Pink Color</button>
- <button (click)="changeColor('yellow')">Yellow Color</button>
- <div [ngSwitch]="color">
- <h1 *ngSwitchCase="'red'" style="background-color: red;">Red Color</h1>
-  <h1 *ngSwitchCase="'green'" style="background-color: green;">Green Color</h1>
- <h1 *ngSwitchCase="'blue'" style="background-color: blue;">Blue Color</h1>
- <h1 *ngSwitchCase="'pink'" style="background-color: pink;">Pink Color</h1>
- <h1 *ngSwitchCase="'yellow'" style="background-color: yellow;">Yellow Color</h1>
- <h1 *ngSwitchDefault >No Color Matched</h1>
+<!-- Switch Directive Example -->
 
-</div>
+<!-- Color selection buttons trigger changeColor() with the selected color -->
+<!-- <button (click)="changeColor('red')">Red Color</button>
+<button (click)="changeColor('green')">Green Color</button>
+<button (click)="changeColor('blue')">Blue Color</button>
+<button (click)="changeColor('pink')">Pink Color</button>
+<button (click)="changeColor('yellow')">Yellow Color</button> -->
+
+<!-- ngSwitch block displays content based on the current 'color' value -->
+<!-- <div [ngSwitch]="color"> -->
+
+  <!-- Display only the matching case -->
+  <!-- <h1 *ngSwitchCase="'red'" style="background-color: red;">Red Color</h1>
+  <h1 *ngSwitchCase="'green'" style="background-color: green;">Green Color</h1>
+  <h1 *ngSwitchCase="'blue'" style="background-color: blue;">Blue Color</h1>
+  <h1 *ngSwitchCase="'pink'" style="background-color: pink;">Pink Color</h1>
+  <h1 *ngSwitchCase="'yellow'" style="background-color: yellow;">Yellow Color</h1> -->
+
+  <!-- Default message if no case matches -->
+  <!-- <h1 *ngSwitchDefault>No Color Matched</h1>
+
+</div> -->
+
+ <app-header></app-header>
+  <router-outlet/>

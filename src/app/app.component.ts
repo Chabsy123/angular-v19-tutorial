@@ -7,6 +7,8 @@ import { Component, effect, signal, } from '@angular/core';
 // import { ProfileComponent } from '../profile/profile.component';
 // import { UserComponent } from './user/user.component';
 import {  NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
 
 // import { RouterOutlet } from '@angular/router';
 
@@ -14,7 +16,8 @@ import {  NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
   selector: 'app-root',
   // for any component to be used, it has to be imported from the app component.
   // for directives, depending on the one you want to use import them as well
-  imports: [ NgSwitch, NgSwitchCase, NgSwitchDefault],
+  // when routing you import as well i.e routeroutlet and routerlink
+  imports: [RouterOutlet,RouterLink,HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -374,11 +377,19 @@ export class AppComponent {
 //   this.login = !this.login;
 // }
 
-// switch directive
-// showing one color at a time with conditions(whichever color is shown here will show on the output as well unless it is not defined in the html template in this case "black")
-color="black"
+// Switch directive example
 
-changeColor(color:string){
-   this.color = color;
-}
+// Holds the currently selected color
+// Starts with "black", which is not defined in the template
+// color = "black";
+
+/**
+ * Updates the 'color' variable based on the button clicked.
+ * The new color value is passed as an argument.
+ */
+// changeColor(color: string) {
+//   this.color = color;
+// }
+
+
 }
