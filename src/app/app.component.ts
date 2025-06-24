@@ -17,7 +17,7 @@ import { HeaderComponent } from './header/header.component';
   // for any component to be used, it has to be imported from the app component.
   // for directives, depending on the one you want to use import them as well
   // when routing you import as well i.e routeroutlet and routerlink
-  imports: [RouterOutlet,RouterLink,HeaderComponent],
+  imports: [RouterOutlet, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
