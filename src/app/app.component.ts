@@ -9,7 +9,7 @@ import { Component, effect, signal, } from '@angular/core';
 import { NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 
 // import { RouterOutlet } from '@angular/router';
 
@@ -19,7 +19,8 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   // for directives, depending on the one you want to use import them as well
   // when routing you import as well i.e routeroutlet and routerlink
   // with reactive forms you import reactiveformmodule
-  imports: [ReactiveFormsModule,NgIf],
+  // for template driven forms you import formsmodule
+  imports: [FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -423,51 +424,66 @@ export class AppComponent {
   // }
 
 
- // Form Grouping in Reactive Forms with Validation
+  // Form Grouping in Reactive Forms with Validation
 
   // Create a FormGroup with 3 FormControls: name, password, and email
   // Validators ensure inputs meet required rules
-  profileForm = new FormGroup({
-    // 'name' must not be empty
-    name: new FormControl('', [Validators.required]),
+  // profileForm = new FormGroup({
+  // 'name' must not be empty
+  //   name: new FormControl('', [Validators.required]),
 
-    // 'password' must be at least 5 characters long
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(5)
-    ]),
+  // 'password' must be at least 5 characters long
+  // password: new FormControl('', [
+  //   Validators.required,
+  //   Validators.minLength(5)
+  // ]),
 
-    // 'email' must be valid, max 30 characters, and match email pattern
-    email: new FormControl('', [
-      Validators.required,
-      Validators.maxLength(30),
-      Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9,-]+\\.[a-z]{2,4}$')
-    ])
-  });
+  // 'email' must be valid, max 30 characters, and match email pattern
+  //   email: new FormControl('', [
+  //     Validators.required,
+  //     Validators.maxLength(30),
+  //     Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9,-]+\\.[a-z]{2,4}$')
+  //   ])
+  // });
 
   /**
    * Triggered when the form is submitted.
    * Logs the entire form group values to the console.
    * Linked to the (ngSubmit)="submitData()" in the HTML.
    */
-  submitData() {
-    console.log(this.profileForm.value);
-  }
+  // submitData() {
+  //   console.log(this.profileForm.value);
+  // }
 
   /**
    * Getter methods to simplify access to form controls from the template.
    * Useful for cleaner HTML and reusable validation checks.
    */
-  get name() {
-    return this.profileForm.get('name');
-  }
+  // get name() {
+  //   return this.profileForm.get('name');
+  // }
 
-  get password() {
-    return this.profileForm.get('password');
-  }
+  // get password() {
+  //   return this.profileForm.get('password');
+  // }
 
-  get email() {
-    return this.profileForm.get('email');
-  }
+  // get email() {
+  //   return this.profileForm.get('email');
+  // }
+
+  // template driven forms
+  // Stores form data after submission
+userData: any;
+
+/**
+ * Handles form submission.
+ * Logs the submitted values and stores them in userData.
+ * The form values come from the NgForm's value object.
+ */
+addUser(val: NgForm) {
+  console.log(val);
+  this.userData = val;
+}
+
 
 }
