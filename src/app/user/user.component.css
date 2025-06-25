@@ -1,6 +1,10 @@
-h1{
-  background-color: black;
-  color: gold;
-  width: 300px;
-  border-radius: 10px;
+h2{
+
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2 span{
+  color: red;
 }

@@ -612,20 +612,30 @@ Each input field is bound to a FormControl using [formControl]
 
 
 <!-- Pass Data to Child Component -->
+<!-- Pass Data From Parent to Child Component -->
 
 <!--
   Binds the 'user' input of <app-user> to userName from the parent.
   Binds the 'city' input directly with a static string.
 -->
-<app-user [user]="userName" city="Noibo"></app-user>
+<!-- <app-user [user]="userName" city="Noibo"></app-user> -->
 
 <!--
   Select dropdown triggers changeUser() on change.
   The selected value becomes the new 'userName' passed to the child.
 -->
-<select #selectedUser (change)="changeUser(selectedUser.value)">
+<!-- <select #selectedUser (change)="changeUser(selectedUser.value)">
   <option value="Anil">Anil</option>
   <option value="Peter">Peter</option>
   <option value="Sam">Sam</option>
   <option value="Tony">Tony</option>
-</select>
+</select> -->
+
+
+<!-- reuse component -->
+ @for(user of users;track user){
+  <div>
+    
+    <app-user [user]="user"></app-user>
+  </div>
+ }

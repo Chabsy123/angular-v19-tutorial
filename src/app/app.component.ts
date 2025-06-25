@@ -503,4 +503,6 @@ onUserChange(user: string) {
 }
 
 
+// reuse components
+users=['Anil','Bruce','Peter','John','Tony']
 }

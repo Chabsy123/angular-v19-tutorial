@@ -27,10 +27,17 @@ export class UserComponent {
 
   // Pass data from parent to child using @Input decorators
 
-// Receives 'user' from parent via property binding
-@Input() user: string = '';
+  // Receives 'user' from parent via property binding
+  // @Input() user: string = '';
 
-// Receives 'city' from parent via property binding
-@Input() city: string = '';
+  // Receives 'city' from parent via property binding
+  // @Input() city: string = '';
 
+  // reuse component
+  // if there is no input,NG8002: Can't bind to 'user' since it isn't a known property of 'app-user'.
+  // 1. If 'app-user' is an Angular component and it has 'user' input, then verify that it is included in the '@Component.imports' of this component.
+  // 2. If 'app-user' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message.
+  // 3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@Component.schemas' of this component.
+
+  @Input() user: string = ''
 }
