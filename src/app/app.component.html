@@ -467,7 +467,7 @@ Each input field is bound to a FormControl using [formControl]
     Please enter valid name
   </span> -->
 
-<br /><br />
+<!-- <br /><br /> -->
 
 <!-- Password Field -->
 <!-- <input type="text" placeholder="Enter Password" formControlName="password" /> -->
@@ -485,7 +485,7 @@ Each input field is bound to a FormControl using [formControl]
     Please enter valid password
   </span> -->
 
-<br /><br />
+<!-- <br /><br /> -->
 
 <!-- Email Field -->
 <!-- <input type="text" placeholder="Enter Email" formControlName="email" /> -->
@@ -512,7 +512,7 @@ Each input field is bound to a FormControl using [formControl]
     Please enter valid email
   </span> -->
 
-<br /><br />
+<!-- <br /><br /> -->
 
 <!-- Submit Button triggers form submission -->
 <!-- <button type="submit">Submit</button> -->
@@ -534,24 +534,24 @@ Each input field is bound to a FormControl using [formControl]
   Template reference variable #userForm is assigned to the NgForm instance.
   When the form is submitted, it triggers addUser() with the form's values.
 -->
-<form #userForm="ngForm" (ngSubmit)="addUser(userForm.value)">
+<!-- <form #userForm="ngForm" (ngSubmit)="addUser(userForm.value)"> -->
   <!-- Input field bound to 'name' via ngModel and the required #name is to make sure the name placeholder is not empty -->
-  <input
+  <!-- <input
     required
     #name="ngModel"
     type="text"
     placeholder="Enter Name"
     name="name"
     ngModel
-  />
+  /> -->
   <!-- a condition that occurs when the name field is invalid -->
-  <span class="error" *ngIf="name.invalid && name.touched"
+  <!-- <span class="error" *ngIf="name.invalid && name.touched"
     >Name is required field</span
   >
-  <br /><br />
+  <br /><br /> -->
 
   <!-- Input field bound to 'password' -->
-  <input
+  <!-- <input
     #password="ngModel"
     type="password"
     required
@@ -564,10 +564,10 @@ Each input field is bound to a FormControl using [formControl]
   <span class="error" *ngIf="password.invalid && password.touched"
     >Password is required,min length 5 and maxlength 10
   </span>
-  <br /><br />
+  <br /><br /> -->
 
   <!-- Input field bound to 'email' -->
-  <input
+  <!-- <input
     #email="ngModel"
     type="email"
     placeholder="Enter email"
@@ -577,9 +577,9 @@ Each input field is bound to a FormControl using [formControl]
   <span class="error" *ngIf="email.invalid && email.touched"
     >Please enter valid email</span
   >
-  <br /><br />
+  <br /><br /> -->
   <!-- Input field bound to 'address' -->
-  <input
+  <!-- <input
     #address="ngModel"
     pattern="[a-zA-Z0-9\s]+"
     type="text"
@@ -590,30 +590,42 @@ Each input field is bound to a FormControl using [formControl]
   <span class="error" *ngIf="address.invalid && address.touched"
     >Please enter valid address</span
   >
-  <br /><br />
+  <br /><br /> -->
 
   <!-- Dropdown field bound to 'gender' -->
-  <select #gender="ngModel" required  name="gender" ngModel>
-    <option value="">Select Gender</option>
-    <option value="male">Male</option>
-    <option value="female">Female</option>
-  </select>
-  <span class="error" *ngIf="gender.invalid && gender.touched"
-    >Please select gender</span
-  >
-  <br /><br />
+  
 
   <!-- Range input is bound to 'range' (note: missing ngModel, so won't update userData unless added) -->
-  <input type="range" name="range" ngModel />
-  <br /><br />
+  <!-- <input type="range" name="range" ngModel />
+  <br /><br /> -->
 
   <!-- Submits the form -->
   <!-- renders the form invalid if the input is invalid -->
-  <button [disabled]="userForm.invalid">Add User</button>
-</form>
+  <!-- <button [disabled]="userForm.invalid">Add User</button>
+</form> -->
 
 <!-- Display submitted user data -->
-<h3>{{ userData?.name }}</h3>
+<!-- <h3>{{ userData?.name }}</h3>
 <h3>{{ userData?.password }}</h3>
 <h3>{{ userData?.gender }}</h3>
-<h3>{{ userData?.range }}</h3>
+<h3>{{ userData?.range }}</h3> -->
+
+
+<!-- Pass Data to Child Component -->
+
+<!--
+  Binds the 'user' input of <app-user> to userName from the parent.
+  Binds the 'city' input directly with a static string.
+-->
+<app-user [user]="userName" city="Noibo"></app-user>
+
+<!--
+  Select dropdown triggers changeUser() on change.
+  The selected value becomes the new 'userName' passed to the child.
+-->
+<select #selectedUser (change)="changeUser(selectedUser.value)">
+  <option value="Anil">Anil</option>
+  <option value="Peter">Peter</option>
+  <option value="Sam">Sam</option>
+  <option value="Tony">Tony</option>
+</select>

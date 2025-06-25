@@ -1,4 +1,4 @@
-import { Component, effect, signal, } from '@angular/core';
+import { Component, effect, Input, signal, } from '@angular/core';
 // when using signals remember to import as well
 // import forms module when doing two way binding as well
 // import { FormsModule } from '@angular/forms';
@@ -10,6 +10,7 @@ import { NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
+import { UserComponent } from './user/user.component';
 
 // import { RouterOutlet } from '@angular/router';
 
@@ -20,7 +21,7 @@ import { FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Valid
   // when routing you import as well i.e routeroutlet and routerlink
   // with reactive forms you import reactiveformmodule
   // for template driven forms you import formsmodule
-  imports: [FormsModule,NgIf],
+  imports: [FormsModule,UserComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -473,16 +474,32 @@ export class AppComponent {
 
   // template driven forms
   // Stores form data after submission
-userData: any;
+// userData: any;
 
 /**
  * Handles form submission.
  * Logs the submitted values and stores them in userData.
  * The form values come from the NgForm's value object.
  */
-addUser(val: NgForm) {
-  console.log(val);
-  this.userData = val;
+// addUser(val: NgForm) {
+//   console.log(val);
+//   this.userData = val;
+// }
+
+// Stores the selected username to pass to the child component
+userName = "Bruce";
+
+/**
+ * Updates 'userName' based on dropdown selection.
+ * This triggers re-binding to the child.
+ */
+changeUser(val: string) {
+  this.userName = val;
+}
+
+// Alternate method (not used in current HTML but functionally similar)
+onUserChange(user: string) {
+  this.userName = user;
 }
 
 
