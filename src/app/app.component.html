@@ -448,3 +448,38 @@ type="text" name="user"
 <h1>{{ name.value }}</h1>
 <h1>{{ password.value }}</h1>
 <h1>{{ email.value }}</h1>
+
+<!-- Form Grouping in Reactive Forms -->
+
+<!--
+  Binds the form to the 'profileForm' FormGroup in the component.
+  Uses 'formControlName' to map each input to its corresponding control in the FormGroup.
+  The form triggers 'submitData()' when submitted.
+-->
+<form [formGroup]="profileForm" (ngSubmit)="submitData()">
+
+  <!-- Maps to profileForm.controls.name -->
+  <input type="text" placeholder="Enter Name" formControlName="name">
+  <br><br>
+
+  <!-- Maps to profileForm.controls.password -->
+  <input type="text" placeholder="Enter Password" formControlName="password">
+  <br><br>
+
+  <!-- Maps to profileForm.controls.email -->
+  <input type="text" placeholder="Enter Email" formControlName="email">
+  <br><br>
+
+  <!-- Submits the form and calls submitData() -->
+  <button type="submit">Submit</button>
+
+  <!-- Calls setValues() to pre-fill the form -->
+  <button type="button" (click)="setValues()">Set Values</button>
+
+</form>
+
+<!-- Live preview of values inside the FormGroup -->
+<h3>{{ profileForm.value.name }}</h3>
+<h3>{{ profileForm.value.password }}</h3>
+<h3>{{ profileForm.value.email }}</h3>
+

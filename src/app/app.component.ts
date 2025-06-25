@@ -6,10 +6,10 @@ import { Component, effect, signal, } from '@angular/core';
 // import { SignupComponent } from './signup/signup.component';
 // import { ProfileComponent } from '../profile/profile.component';
 // import { UserComponent } from './user/user.component';
-import {  NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
+import { NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 // import { RouterOutlet } from '@angular/router';
 
@@ -324,102 +324,134 @@ export class AppComponent {
 
   // Directives In Angular
   // defining show to be true or false to display the element on the page as a structural directive
-//   show = true
+  //   show = true
 
- // Simple list of student names for string-based display
-// students = ["Anil", "Beetroot", "Peter", "Bruce", "Hestia"];
+  // Simple list of student names for string-based display
+  // students = ["Anil", "Beetroot", "Peter", "Bruce", "Hestia"];
 
-// List of student objects with name, age, and email
-// studentData = [
-//   {
-//     name: 'anil',
-//     age: 30,
-//     email: 'anil@test.com'
-//   },
-//   {
-//     name: 'Sam',
-//     age: 39,
-//     email: 'Sam@test.com'
-//   },
-//   {
-//     name: 'Bruce',
-//     age: 20,
-//     email: 'Bruce@test.com'
-//   },
-//   {
-//     name: 'Hestia',
-//     age: 22,
-//     email: 'hestia@test.com'
-//   },
-//   {
-//     name: 'Peter',
-//     age: 25,
-//     email: 'Peter@test.com'
-//   },
-// ];
+  // List of student objects with name, age, and email
+  // studentData = [
+  //   {
+  //     name: 'anil',
+  //     age: 30,
+  //     email: 'anil@test.com'
+  //   },
+  //   {
+  //     name: 'Sam',
+  //     age: 39,
+  //     email: 'Sam@test.com'
+  //   },
+  //   {
+  //     name: 'Bruce',
+  //     age: 20,
+  //     email: 'Bruce@test.com'
+  //   },
+  //   {
+  //     name: 'Hestia',
+  //     age: 22,
+  //     email: 'hestia@test.com'
+  //   },
+  //   {
+  //     name: 'Peter',
+  //     age: 25,
+  //     email: 'Peter@test.com'
+  //   },
+  // ];
 
-// NgIf directive examples
+  // NgIf directive examples
 
-// shows = true;     // Controls visibility of Heading 1
-// block = 1;        // Controls which numbered heading is shown
-// login = false;    // Tracks login state for toggle logic
+  // shows = true;     // Controls visibility of Heading 1
+  // block = 1;        // Controls which numbered heading is shown
+  // login = false;    // Tracks login state for toggle logic
 
-// Toggles the visibility of the first heading
-// toggle() {
-//   this.shows = !this.shows;
-// }
+  // Toggles the visibility of the first heading
+  // toggle() {
+  //   this.shows = !this.shows;
+  // }
 
-// Cycles through block values (1 → 2 → 3 → 4...)
-// updateBlockVal() {
-//   this.block++;
-// }
+  // Cycles through block values (1 → 2 → 3 → 4...)
+  // updateBlockVal() {
+  //   this.block++;
+  // }
 
- // Toggles login state to switch between Login and Logout buttons
-// loginToggle() {
-//   this.login = !this.login;
-// }
+  // Toggles login state to switch between Login and Logout buttons
+  // loginToggle() {
+  //   this.login = !this.login;
+  // }
 
-// Switch directive example
+  // Switch directive example
 
-// Holds the currently selected color
-// Starts with "black", which is not defined in the template
-// color = "black";
+  // Holds the currently selected color
+  // Starts with "black", which is not defined in the template
+  // color = "black";
+
+  /**
+   * Updates the 'color' variable based on the button clicked.
+   * The new color value is passed as an argument.
+   */
+  // changeColor(color: string) {
+  //   this.color = color;
+  // }
+
+
+  // Reactive Forms
+
+  // Create form control instances for each input field
+  // Initial values are set as defaults
+  name = new FormControl('anil');
+  password = new FormControl('2342');
+  email = new FormControl('asmat@gmail.com');
+
+  /**
+   * Logs the current values of the form controls
+   * This simulates form submission or value inspection
+   */
+  getValue() {
+    console.log(this.name.value);
+    console.log(this.password.value);
+    console.log(this.email.value);
+  }
+
+  /**
+   * Sets new values for the form controls programmatically
+   * This simulates pre-filling or updating form fields
+   */
+  setValue() {
+    this.name.setValue("Peter");
+    this.password.setValue("125326");
+    this.email.setValue("sidu@gmail.com");
+  }
+
+  // form grouping.ts
+  // Form Grouping in Reactive Forms
+
+// Create a FormGroup with 3 FormControls: name, password, and email
+// This group links to the form in the template via [formGroup]="profileForm"
+profileForm = new FormGroup({
+  name: new FormControl('anil'),
+  password: new FormControl('123'),
+  email: new FormControl('anil@test.com'),
+});
 
 /**
- * Updates the 'color' variable based on the button clicked.
- * The new color value is passed as an argument.
+ * Programmatically updates all fields in the form group
+ * This connects to the 'Set Values' button in the template
  */
-// changeColor(color: string) {
-//   this.color = color;
-// }
-
-
-// Reactive Forms
-
-// Create form control instances for each input field
-// Initial values are set as defaults
-name = new FormControl('anil');
-password = new FormControl('2342');
-email = new FormControl('asmat@gmail.com');
-
-/**
- * Logs the current values of the form controls
- * This simulates form submission or value inspection
- */
-getValue() {
-  console.log(this.name.value);
-  console.log(this.password.value);
-  console.log(this.email.value);
+setValues() {
+  this.profileForm.setValue({
+    name: 'Peter',
+    password: '2212123',
+    email: 'anil@test.com'
+  });
 }
 
 /**
- * Sets new values for the form controls programmatically
- * This simulates pre-filling or updating form fields
+ * Triggered when the form is submitted
+ * Logs the current form group values to the console
+ * Linked to the (ngSubmit)="submitData()" in the HTML
  */
-setValue() {
-  this.name.setValue("Peter");
-  this.password.setValue("125326");
-  this.email.setValue("sidu@gmail.com");
+submitData() {
+  console.log(this.profileForm.value);
 }
 
 }
