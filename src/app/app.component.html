@@ -410,21 +410,21 @@ type="text" name="user"
 <!-- ngSwitch block displays content based on the current 'color' value -->
 <!-- <div [ngSwitch]="color"> -->
 
-  <!-- Display only the matching case -->
-  <!-- <h1 *ngSwitchCase="'red'" style="background-color: red;">Red Color</h1>
+<!-- Display only the matching case -->
+<!-- <h1 *ngSwitchCase="'red'" style="background-color: red;">Red Color</h1>
   <h1 *ngSwitchCase="'green'" style="background-color: green;">Green Color</h1>
   <h1 *ngSwitchCase="'blue'" style="background-color: blue;">Blue Color</h1>
   <h1 *ngSwitchCase="'pink'" style="background-color: pink;">Pink Color</h1>
   <h1 *ngSwitchCase="'yellow'" style="background-color: yellow;">Yellow Color</h1> -->
 
-  <!-- Default message if no case matches -->
-  <!-- <h1 *ngSwitchDefault>No Color Matched</h1>
+<!-- Default message if no case matches -->
+<!-- <h1 *ngSwitchDefault>No Color Matched</h1>
 
 </div> -->
 
- <!-- <app-header></app-header>
+<!-- <app-header></app-header>
   <router-outlet/> -->
-  <!-- Reactive Forms UI -->
+<!-- Reactive Forms UI -->
 
 <!-- <h2>Basic React Forms</h2>
 
@@ -451,55 +451,55 @@ Each input field is bound to a FormControl using [formControl]
 <!-- Form Grouping in Reactive Forms -->
 <!-- <form [formGroup]="profileForm" (ngSubmit)="submitData()"> -->
 
-  <!-- Name Field -->
-  <!-- <input type="text" placeholder="Enter Name" formControlName="name" /> -->
+<!-- Name Field -->
+<!-- <input type="text" placeholder="Enter Name" formControlName="name" /> -->
 
-  <!-- Shows when the 'name' field is empty (required validator fails) -->
-  <!-- <span *ngIf="name?.hasError('required')">
+<!-- Shows when the 'name' field is empty (required validator fails) -->
+<!-- <span *ngIf="name?.hasError('required')">
     This is a required field
   </span> -->
 
-  <!--
+<!--
     Shows when the 'name' field is invalid AND has been touched or modified.
     This gives user-friendly feedback without showing it immediately on load.
   -->
-  <!-- <span class="error" *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+<!-- <span class="error" *ngIf="name?.invalid && (name?.dirty || name?.touched)">
     Please enter valid name
   </span> -->
 
-  <br /><br />
+<br /><br />
 
-  <!-- Password Field -->
-  <!-- <input type="text" placeholder="Enter Password" formControlName="password" /> -->
+<!-- Password Field -->
+<!-- <input type="text" placeholder="Enter Password" formControlName="password" /> -->
 
-  <!-- Shows when the 'password' field is empty -->
-  <!-- <span *ngIf="password?.hasError('required')">
+<!-- Shows when the 'password' field is empty -->
+<!-- <span *ngIf="password?.hasError('required')">
     This is a required field
   </span> -->
 
-  <!--
+<!--
     Shows if the password is invalid — includes failing required or minLength.
     Only appears after the field is interacted with (dirty/touched).
   -->
-  <!-- <span class="error" *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+<!-- <span class="error" *ngIf="password?.invalid && (password?.dirty || password?.touched)">
     Please enter valid password
   </span> -->
 
-  <br /><br />
+<br /><br />
 
-  <!-- Email Field -->
-  <!-- <input type="text" placeholder="Enter Email" formControlName="email" /> -->
+<!-- Email Field -->
+<!-- <input type="text" placeholder="Enter Email" formControlName="email" /> -->
 
-  <!-- Shows when the 'email' field is empty -->
-  <!-- <span *ngIf="email?.hasError('required')">
+<!-- Shows when the 'email' field is empty -->
+<!-- <span *ngIf="email?.hasError('required')">
     This is a required field
   </span> -->
 
-  <!--
+<!--
     Shows when the email is invalid due to pattern mismatch, length, or empty input.
     Only triggered after user interacts with the field.
   -->
-    <!--
+<!--
   This span will only be displayed if:
   1. The 'email' form control is invalid (fails any validator)
   2. AND the user has either:
@@ -508,17 +508,17 @@ Each input field is bound to a FormControl using [formControl]
 
   This prevents showing error messages before the user interacts with the field.
 -->
-  <!-- <span class="error" *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+<!-- <span class="error" *ngIf="email?.invalid && (email?.dirty || email?.touched)">
     Please enter valid email
   </span> -->
 
-  <br /><br />
+<br /><br />
 
-  <!-- Submit Button triggers form submission -->
-  <!-- <button type="submit">Submit</button> -->
+<!-- Submit Button triggers form submission -->
+<!-- <button type="submit">Submit</button> -->
 
-  <!-- Optional: for setting form values programmatically -->
-  <!-- <button type="button" (click)="setValues()">Set Values</button> -->
+<!-- Optional: for setting form values programmatically -->
+<!-- <button type="button" (click)="setValues()">Set Values</button> -->
 
 <!-- </form> -->
 
@@ -526,7 +526,6 @@ Each input field is bound to a FormControl using [formControl]
 <!-- <h3>{{ profileForm.value.name }}</h3>
 <h3>{{ profileForm.value.password }}</h3>
 <h3>{{ profileForm.value.email }}</h3> -->
-
 
 <!-- template driven forms -->
 <!-- Template-Driven Form -->
@@ -536,29 +535,81 @@ Each input field is bound to a FormControl using [formControl]
   When the form is submitted, it triggers addUser() with the form's values.
 -->
 <form #userForm="ngForm" (ngSubmit)="addUser(userForm.value)">
-
-  <!-- Input field bound to 'name' via ngModel -->
-  <input type="text" placeholder="Enter Name" name="name" ngModel />
+  <!-- Input field bound to 'name' via ngModel and the required #name is to make sure the name placeholder is not empty -->
+  <input
+    required
+    #name="ngModel"
+    type="text"
+    placeholder="Enter Name"
+    name="name"
+    ngModel
+  />
+  <!-- a condition that occurs when the name field is invalid -->
+  <span class="error" *ngIf="name.invalid && name.touched"
+    >Name is required field</span
+  >
   <br /><br />
 
   <!-- Input field bound to 'password' -->
-  <input type="password" placeholder="Enter password" name="password" ngModel />
+  <input
+    #password="ngModel"
+    type="password"
+    required
+    minlength="5"
+    maxlength="10"
+    placeholder="Enter password"
+    name="password"
+    ngModel
+  />
+  <span class="error" *ngIf="password.invalid && password.touched"
+    >Password is required,min length 5 and maxlength 10
+  </span>
+  <br /><br />
+
+  <!-- Input field bound to 'email' -->
+  <input
+    #email="ngModel"
+    type="email"
+    placeholder="Enter email"
+    name="email"
+    ngModel
+  />
+  <span class="error" *ngIf="email.invalid && email.touched"
+    >Please enter valid email</span
+  >
+  <br /><br />
+  <!-- Input field bound to 'address' -->
+  <input
+    #address="ngModel"
+    pattern="[a-zA-Z0-9\s]+"
+    type="text"
+    placeholder="Enter address"
+    name="address"
+    ngModel
+  />
+  <span class="error" *ngIf="address.invalid && address.touched"
+    >Please enter valid address</span
+  >
   <br /><br />
 
   <!-- Dropdown field bound to 'gender' -->
-  <select name="gender" ngModel>
+  <select #gender="ngModel" required  name="gender" ngModel>
     <option value="">Select Gender</option>
     <option value="male">Male</option>
     <option value="female">Female</option>
   </select>
+  <span class="error" *ngIf="gender.invalid && gender.touched"
+    >Please select gender</span
+  >
   <br /><br />
 
   <!-- Range input is bound to 'range' (note: missing ngModel, so won't update userData unless added) -->
-  <input type="range" name="range" ngModel/>
+  <input type="range" name="range" ngModel />
   <br /><br />
 
   <!-- Submits the form -->
-  <button>Add User</button>
+  <!-- renders the form invalid if the input is invalid -->
+  <button [disabled]="userForm.invalid">Add User</button>
 </form>
 
 <!-- Display submitted user data -->
@@ -566,4 +617,3 @@ Each input field is bound to a FormControl using [formControl]
 <h3>{{ userData?.password }}</h3>
 <h3>{{ userData?.gender }}</h3>
 <h3>{{ userData?.range }}</h3>
-

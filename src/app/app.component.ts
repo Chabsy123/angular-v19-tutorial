@@ -20,7 +20,7 @@ import { FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Valid
   // when routing you import as well i.e routeroutlet and routerlink
   // with reactive forms you import reactiveformmodule
   // for template driven forms you import formsmodule
-  imports: [FormsModule],
+  imports: [FormsModule,NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
