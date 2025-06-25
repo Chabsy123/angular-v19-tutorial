@@ -422,5 +422,29 @@ type="text" name="user"
 
 </div> -->
 
- <app-header></app-header>
-  <router-outlet/>
+ <!-- <app-header></app-header>
+  <router-outlet/> -->
+  <!-- Reactive Forms UI -->
+
+<h2>Basic React Forms</h2>
+
+<!-- Each input field is bound to a FormControl using [formControl] -->
+<input type="text" placeholder="Enter name" [formControl]="name">
+<br><br>
+
+<input type="text" placeholder="Enter password" [formControl]="password">
+<br><br>
+
+<input type="text" placeholder="Enter email" [formControl]="email">
+<br><br>
+
+<!-- Button to log form values to the console -->
+<button (click)="getValue()">Add Info</button>
+
+<!-- Button to programmatically set new values -->
+<button (click)="setValue()">Set Info</button>
+
+<!-- Display live values from each form control -->
+<h1>{{ name.value }}</h1>
+<h1>{{ password.value }}</h1>
+<h1>{{ email.value }}</h1>

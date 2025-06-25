@@ -13,11 +13,11 @@ templateUrl:'./profile.component.html',
   styleUrl:'./profile.component.css'
 })
 export class ProfileComponent {
-  userName: string | null = '';
+  // userName: string | null = '';
 
-  constructor(private route: ActivatedRoute) {}
+  // constructor(private route: ActivatedRoute) {}
 
-  ngOnInit() {
+  // ngOnInit() {
     // Option 1: Get route parameter (if set using paramMap)
     // this.userName = this.route.snapshot.paramMap.get('name');
 
@@ -28,8 +28,9 @@ export class ProfileComponent {
     // });
 
     // Option 3: Get static data from route configuration
-    this.route.data.subscribe(params => {
-      this.userName = params['name'];
-    });
-  }
+//     this.route.data.subscribe(params => {
+//       this.userName = params['name'];
+//     });
+//   }
+//  }
 }

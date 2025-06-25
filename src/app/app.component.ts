@@ -9,6 +9,7 @@ import { Component, effect, signal, } from '@angular/core';
 import {  NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 // import { RouterOutlet } from '@angular/router';
 
@@ -17,7 +18,8 @@ import { HeaderComponent } from './header/header.component';
   // for any component to be used, it has to be imported from the app component.
   // for directives, depending on the one you want to use import them as well
   // when routing you import as well i.e routeroutlet and routerlink
-  imports: [RouterOutlet, HeaderComponent],
+  // with reactive forms you import reactiveformmodule
+  imports: [ReactiveFormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -391,5 +393,33 @@ export class AppComponent {
 //   this.color = color;
 // }
 
+
+// Reactive Forms
+
+// Create form control instances for each input field
+// Initial values are set as defaults
+name = new FormControl('anil');
+password = new FormControl('2342');
+email = new FormControl('asmat@gmail.com');
+
+/**
+ * Logs the current values of the form controls
+ * This simulates form submission or value inspection
+ */
+getValue() {
+  console.log(this.name.value);
+  console.log(this.password.value);
+  console.log(this.email.value);
+}
+
+/**
+ * Sets new values for the form controls programmatically
+ * This simulates pre-filling or updating form fields
+ */
+setValue() {
+  this.name.setValue("Peter");
+  this.password.setValue("125326");
+  this.email.setValue("sidu@gmail.com");
+}
 
 }
