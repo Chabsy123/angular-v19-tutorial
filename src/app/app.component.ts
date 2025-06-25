@@ -6,10 +6,10 @@ import { Component, effect, signal, } from '@angular/core';
 // import { SignupComponent } from './signup/signup.component';
 // import { ProfileComponent } from '../profile/profile.component';
 // import { UserComponent } from './user/user.component';
-import { NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
+import { NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 // import { RouterOutlet } from '@angular/router';
 
@@ -19,7 +19,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   // for directives, depending on the one you want to use import them as well
   // when routing you import as well i.e routeroutlet and routerlink
   // with reactive forms you import reactiveformmodule
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -398,60 +398,76 @@ export class AppComponent {
 
   // Create form control instances for each input field
   // Initial values are set as defaults
-  name = new FormControl('anil');
-  password = new FormControl('2342');
-  email = new FormControl('asmat@gmail.com');
+  // name = new FormControl('anil');
+  // password = new FormControl('2342');
+  // email = new FormControl('asmat@gmail.com');
 
   /**
    * Logs the current values of the form controls
    * This simulates form submission or value inspection
    */
-  getValue() {
-    console.log(this.name.value);
-    console.log(this.password.value);
-    console.log(this.email.value);
-  }
+  // getValue() {
+  //   console.log(this.name.value);
+  //   console.log(this.password.value);
+  //   console.log(this.email.value);
+  // }
 
   /**
    * Sets new values for the form controls programmatically
    * This simulates pre-filling or updating form fields
    */
-  setValue() {
-    this.name.setValue("Peter");
-    this.password.setValue("125326");
-    this.email.setValue("sidu@gmail.com");
+  // setValue() {
+  //   this.name.setValue("Peter");
+  //   this.password.setValue("125326");
+  //   this.email.setValue("sidu@gmail.com");
+  // }
+
+
+ // Form Grouping in Reactive Forms with Validation
+
+  // Create a FormGroup with 3 FormControls: name, password, and email
+  // Validators ensure inputs meet required rules
+  profileForm = new FormGroup({
+    // 'name' must not be empty
+    name: new FormControl('', [Validators.required]),
+
+    // 'password' must be at least 5 characters long
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(5)
+    ]),
+
+    // 'email' must be valid, max 30 characters, and match email pattern
+    email: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(30),
+      Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9,-]+\\.[a-z]{2,4}$')
+    ])
+  });
+
+  /**
+   * Triggered when the form is submitted.
+   * Logs the entire form group values to the console.
+   * Linked to the (ngSubmit)="submitData()" in the HTML.
+   */
+  submitData() {
+    console.log(this.profileForm.value);
   }
 
-  // form grouping.ts
-  // Form Grouping in Reactive Forms
+  /**
+   * Getter methods to simplify access to form controls from the template.
+   * Useful for cleaner HTML and reusable validation checks.
+   */
+  get name() {
+    return this.profileForm.get('name');
+  }
 
-// Create a FormGroup with 3 FormControls: name, password, and email
-// This group links to the form in the template via [formGroup]="profileForm"
-profileForm = new FormGroup({
-  name: new FormControl('anil'),
-  password: new FormControl('123'),
-  email: new FormControl('anil@test.com'),
-});
+  get password() {
+    return this.profileForm.get('password');
+  }
 
-/**
- * Programmatically updates all fields in the form group
- * This connects to the 'Set Values' button in the template
- */
-setValues() {
-  this.profileForm.setValue({
-    name: 'Peter',
-    password: '2212123',
-    email: 'anil@test.com'
-  });
-}
-
-/**
- * Triggered when the form is submitted
- * Logs the current form group values to the console
- * Linked to the (ngSubmit)="submitData()" in the HTML
- */
-submitData() {
-  console.log(this.profileForm.value);
-}
+  get email() {
+    return this.profileForm.get('email');
+  }
 
 }
