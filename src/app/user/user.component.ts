@@ -61,4 +61,27 @@ export class UserComponent {
     this.getUsers.emit(this.users);
   }
     */
+  //  Using the already made usercomponent  for the tutorial life cycle hooks
+// Receives counter value from parent
+  @Input() counter = 0;
+
+  constructor() {
+    console.log("constructor"); // Runs when component instance is created
+  }
+
+  // Called once after component's inputs are initialized
+  ngOnInit() {
+    console.log("ngOnInit");
+  }
+
+  // Called whenever any @Input value changes
+  ngOnChanges() {
+    console.log("ngOnChanges");
+  }
+
+  // Called just before the component is destroyed
+  ngOnDestroy() {
+    console.log("ngOnDestroy");
+    alert("This component will be hidden");
+  }
 }

@@ -1,16 +1,16 @@
-import { Component, effect, Input, signal, } from '@angular/core';
+import { afterNextRender, afterRender, Component, effect, Input, signal, ViewChild, } from '@angular/core';
 // when using signals remember to import as well
 // import forms module when doing two way binding as well
 // import { FormsModule } from '@angular/forms';
 // import { LoginComponent } from './login/login.component';
 // import { SignupComponent } from './signup/signup.component';
 // import { ProfileComponent } from '../profile/profile.component';
-// import { UserComponent } from './user/user.component';
+import { UserComponent } from './user/user.component';
 import { CommonModule, NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
-import { UserComponent } from './user/user.component';
+// import { UserComponent } from './user/user.component';
 import { CurrencyConverterPipe } from './pipe/currency-converter.pipe';
 
 // import { RouterOutlet } from '@angular/router';
@@ -23,8 +23,8 @@ import { CurrencyConverterPipe } from './pipe/currency-converter.pipe';
   // with reactive forms you import reactiveformmodule
 // for pipes import the common module
   // for template driven forms you import formsmodule
-// to use a pipe you have to import it as well with its name from the pipe file you made
-  imports: [FormsModule,CommonModule,CurrencyConverterPipe],
+// to use a pipe you have to import it as well with its name from the pipe file you made e.g CurrencyConverterPipe
+  imports: [FormsModule,CommonModule,UserComponent,NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -522,7 +522,7 @@ handleUsers(users: string[]) {
   console.log(users);
   this.users = users;
 }
-*/
+
 
 // pipes in angular
 // Sample values for built-in pipes
@@ -532,6 +532,31 @@ handleUsers(users: string[]) {
 
   // Used for custom currency conversion examples
   amount2 = 100;
+  */
+
+  // Using the already made usercomponent  for the tutorial life cycle hooks
+  // Tracks current counter value, passed to child
+  counter = 0;
+
+  // References the child component instance via template ref #user
+  @ViewChild('user') UserComponent: any;
+
+  constructor() {
+    // Runs immediately after initial render (sync version)
+    afterRender(() => {
+      console.log("afterRender", this.UserComponent?.counter);
+    });
+
+    // Runs after the next change detection cycle (async)
+    afterNextRender(() => {
+      console.log("afterNextRender", this.UserComponent?.counter);
+    });
+  }
+
+  // Increments the counter when button is clicked
+  updateCounter() {
+    this.counter++;
+  }
 }
 
 

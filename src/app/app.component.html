@@ -659,26 +659,26 @@ Each input field is bound to a FormControl using [formControl]
 <!-- pipes in angular -->
  <!-- Built-in Pipes -->
 
-<!-- Converts title to UPPERCASE -->
+<!-- Converts title to UPPERCASE
 <h1>{{ title | uppercase }}</h1>
-
-<!-- Converts title to Title Case -->
+-->
+<!-- Converts title to Title Case
 <h1>{{ title | titlecase }}</h1>
-
-<!-- Converts name to lowercase -->
+ -->
+<!-- Converts name to lowercase
 <h2>{{ name | lowercase }}</h2>
-
-<!-- Formats date using default format (e.g., Feb 2, 2025) -->
+ -->
+<!-- Formats date using default format (e.g., Feb 2, 2025)
 <h2>{{ today | date }}</h2>
-
-<!-- Formats full date (e.g., Monday, February 3, 2025) -->
+ -->
+<!-- Formats full date (e.g., Monday, February 3, 2025)
 <h2>{{ today | date:'fullDate' }}</h2>
-
-<!-- Shows only the time (hh:mm:ss format) -->
+-->
+<!-- Shows only the time (hh:mm:ss format)
 <h2>{{ today | date:'hh:mm:ss' }}</h2>
-
-<!-- Chaining pipes: format date and then uppercase -->
-<h2>{{ today | date:'fullDate' | uppercase }}</h2>
+-->
+<!-- Chaining pipes: format date and then uppercase
+<h2>{{ today | date:'fullDate' | uppercase }}</h2>-->
 
 <!-- Currency pipes  -->
 <!--
@@ -689,12 +689,26 @@ Each input field is bound to a FormControl using [formControl]
 
 <!-- Custom Pipe Usage -->
 
-<!-- Uses default NGN conversion (value * 1600) -->
-<h2>USD TO NGN: {{ amount2 | currencyConverter }}</h2>
+<!-- Uses default NGN conversion (value * 1600)
+<h2>USD TO NGN: {{ amount2 | currencyConverter }}</h2>-->
 
-<!-- Uses custom conversion rate (12 * 10) -->
+<!-- Uses custom conversion rate (12 * 10)
 <h2>YEN TO INR: {{ amount2 | currencyConverter:12 }}</h2>
-
-<!-- Uses custom conversion rate (98 * 10) -->
+-->
+<!-- Uses custom conversion rate (98 * 10)
 <h2>EURO TO INR: {{ amount2 | currencyConverter:98 }}</h2>
+
+-->
+
+<!-- Using the already made usercomponent  for the tutorial life cycle hooks-->
+ <h1>Life Cycle Hooks in Angular</h1>
+
+<!-- Button to increment the counter -->
+<button (click)="updateCounter()">{{ counter }}</button>
+
+<!-- Dynamically render the child component unless counter equals 5 -->
+<!-- 'user' is a template reference passed to @ViewChild -->
+<div *ngIf="counter != 5">
+  <app-user [counter]="counter" #user></app-user>
+</div>
 

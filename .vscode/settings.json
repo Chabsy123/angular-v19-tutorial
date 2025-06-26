@@ -4,6 +4,7 @@
         "formsmodule",
         "reactiveformmodule",
         "routerlink",
-        "titlecase"
+        "titlecase",
+        "usercomponent"
     ]
 }
