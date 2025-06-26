@@ -530,7 +530,7 @@ Each input field is bound to a FormControl using [formControl]
 <!-- template driven forms -->
 <!-- Template-Driven Form -->
 
-<!-- 
+<!--
   Template reference variable #userForm is assigned to the NgForm instance.
   When the form is submitted, it triggers addUser() with the form's values.
 -->
@@ -593,7 +593,7 @@ Each input field is bound to a FormControl using [formControl]
   <br /><br /> -->
 
   <!-- Dropdown field bound to 'gender' -->
-  
+
 
   <!-- Range input is bound to 'range' (note: missing ngModel, so won't update userData unless added) -->
   <!-- <input type="range" name="range" ngModel />
@@ -633,9 +633,25 @@ Each input field is bound to a FormControl using [formControl]
 
 
 <!-- reuse component -->
- @for(user of users;track user){
+ <!-- @for(user of users;track user){
   <div>
-    
+
     <app-user [user]="user"></app-user>
   </div>
- }
+ } -->
+
+ <!-- Pass data from child to parent component -->
+ <!--
+  Listens to the 'getUsers' event emitted from the <app-user> component.
+  When triggered, it calls handleUsers($event) in the parent.
+-->
+<app-user (getUsers)="handleUsers($event)"></app-user>
+
+<!--
+  Renders the list of users received from the child using @for loop.
+  'track user' helps Angular optimize DOM updates.
+-->
+@for (user of users; track user) {
+  <h1>{{ user }}</h1>
+}
+

@@ -487,22 +487,41 @@ export class AppComponent {
 // }
 
 // Stores the selected username to pass to the child component
-userName = "Bruce";
+// userName = "Bruce";
 
 /**
  * Updates 'userName' based on dropdown selection.
  * This triggers re-binding to the child.
  */
-changeUser(val: string) {
-  this.userName = val;
-}
+// changeUser(val: string) {
+//   this.userName = val;
+// }
 
 // Alternate method (not used in current HTML but functionally similar)
-onUserChange(user: string) {
-  this.userName = user;
-}
+// onUserChange(user: string) {
+//   this.userName = user;
+// }
 
 
 // reuse components
-users=['Anil','Bruce','Peter','John','Tony']
+// users=['Anil','Bruce','Peter','John','Tony']
+
+// pass data from child to parent component
+
+// Receives data emitted from the child component
+users: string[] | undefined;
+
+/**
+ * Handles the user list emitted from the child.
+ * Connected via (getUsers) event binding in app.component.html
+ */
+handleUsers(users: string[]) {
+  console.log(users);
+  this.users = users;
 }
+
+}
+
+
+
+

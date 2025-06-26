@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -39,5 +39,24 @@ export class UserComponent {
   // 2. If 'app-user' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message.
   // 3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@Component.schemas' of this component.
 
-  @Input() user: string = ''
+  // @Input() user: string = ''
+
+   // Emits an event carrying the list of users to the parent
+  @Output() getUsers = new EventEmitter();
+
+  // Sample data to send to parent component
+  users = ['Anil', 'Bruce', 'Peter', 'John', 'Tony'];
+
+  /**
+   * Emits the user list when called.
+   * Called by the second button in the HTML.
+   */
+  passData() {
+    this.getUsers.emit(this.users);
+  }
+
+  // You could also emit automatically on init (currently commented out)
+  // ngOnInit() {
+  //   this.getUsers.emit(this.users);
+  // }
 }

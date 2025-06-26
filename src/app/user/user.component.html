@@ -6,4 +6,21 @@
 <!-- <h1>User name is {{ user }}</h1>
 <h1>{{ city }}</h1> -->
 
-<h2>User Name is: <span>{{ user }}</span></h2>
+<!-- reuse components -->
+<!-- <h2>User Name is: <span>{{ user }}</span></h2> -->
+
+
+ <!-- Pass Data from Child to Parent Component -->
+<h1>User Component</h1>
+
+<!--
+  Button 1: Emits the 'users' array using inline emit in the template.
+  Notice: No 'this' keyword is used inside template bindings.
+-->
+<button (click)="getUsers.emit(users)">Pass Data 1</button>
+
+<!--
+  Button 2: Calls a method in the TS file to emit the same data.
+-->
+<button (click)="passData()">Pass Data 2</button>
+
