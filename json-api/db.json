@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "John",
+      "age": 30,
+      "email": "John@test.com"
+    },
+    {
+      "id": "2",
+      "name": "James",
+      "age": 32,
+      "email": "James@test.com"
+    },
+    {
+      "id": "3",
+      "name": "Natalie",
+      "age": 25,
+      "email": "Natalie@test.com"
+    },
+    {
+      "id": "4",
+      "name": "Anita",
+      "age": 37,
+      "email": "Anita@test.com"
+    },
+    {
+      "id": "5",
+      "name": "Peter",
+      "age": 39,
+      "email": "Peter@test.com"
+    },
+    {
+      "id": "6",
+      "name": "Steve",
+      "age": 40,
+      "email": "Steve@test.com"
+    }
+  ]
+}
