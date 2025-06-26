@@ -3,6 +3,7 @@
         "Aang",
         "formsmodule",
         "reactiveformmodule",
-        "routerlink"
+        "routerlink",
+        "titlecase"
     ]
 }

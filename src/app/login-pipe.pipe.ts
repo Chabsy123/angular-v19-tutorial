@@ -10,3 +10,5 @@ export class LoginPipePipe implements PipeTransform {
   }
 
 }
+
+// custom pipes manually made

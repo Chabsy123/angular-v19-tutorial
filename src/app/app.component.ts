@@ -6,11 +6,12 @@ import { Component, effect, Input, signal, } from '@angular/core';
 // import { SignupComponent } from './signup/signup.component';
 // import { ProfileComponent } from '../profile/profile.component';
 // import { UserComponent } from './user/user.component';
-import { NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
+import { CommonModule, NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserComponent } from './user/user.component';
+import { CurrencyConverterPipe } from './pipe/currency-converter.pipe';
 
 // import { RouterOutlet } from '@angular/router';
 
@@ -20,8 +21,10 @@ import { UserComponent } from './user/user.component';
   // for directives, depending on the one you want to use import them as well
   // when routing you import as well i.e routeroutlet and routerlink
   // with reactive forms you import reactiveformmodule
+// for pipes import the common module
   // for template driven forms you import formsmodule
-  imports: [FormsModule,UserComponent],
+// to use a pipe you have to import it as well with its name from the pipe file you made
+  imports: [FormsModule,CommonModule,CurrencyConverterPipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -507,19 +510,28 @@ export class AppComponent {
 // users=['Anil','Bruce','Peter','John','Tony']
 
 // pass data from child to parent component
-
+/**
 // Receives data emitted from the child component
 users: string[] | undefined;
 
-/**
+
  * Handles the user list emitted from the child.
  * Connected via (getUsers) event binding in app.component.html
- */
+
 handleUsers(users: string[]) {
   console.log(users);
   this.users = users;
 }
+*/
 
+// pipes in angular
+// Sample values for built-in pipes
+  title = "code step by step";
+  name = "jackie chan";
+  today = new Date();
+
+  // Used for custom currency conversion examples
+  amount2 = 100;
 }
 
 

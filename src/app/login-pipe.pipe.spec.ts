@@ -6,3 +6,4 @@ describe('LoginPipePipe', () => {
     expect(pipe).toBeTruthy();
   });
 });
+// custom pipes manually made

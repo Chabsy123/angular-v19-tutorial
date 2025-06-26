@@ -42,21 +42,23 @@ export class UserComponent {
   // @Input() user: string = ''
 
    // Emits an event carrying the list of users to the parent
+    /**
   @Output() getUsers = new EventEmitter();
 
   // Sample data to send to parent component
   users = ['Anil', 'Bruce', 'Peter', 'John', 'Tony'];
 
-  /**
+
    * Emits the user list when called.
    * Called by the second button in the HTML.
-   */
+
   passData() {
     this.getUsers.emit(this.users);
   }
 
-  // You could also emit automatically on init (currently commented out)
-  // ngOnInit() {
-  //   this.getUsers.emit(this.users);
-  // }
+  You could also emit automatically on init
+  ngOnInit() {
+    this.getUsers.emit(this.users);
+  }
+    */
 }

@@ -644,14 +644,57 @@ Each input field is bound to a FormControl using [formControl]
  <!--
   Listens to the 'getUsers' event emitted from the <app-user> component.
   When triggered, it calls handleUsers($event) in the parent.
--->
+--><!--
 <app-user (getUsers)="handleUsers($event)"></app-user>
 
-<!--
+
   Renders the list of users received from the child using @for loop.
   'track user' helps Angular optimize DOM updates.
--->
+
 @for (user of users; track user) {
   <h1>{{ user }}</h1>
 }
+-->
+
+<!-- pipes in angular -->
+ <!-- Built-in Pipes -->
+
+<!-- Converts title to UPPERCASE -->
+<h1>{{ title | uppercase }}</h1>
+
+<!-- Converts title to Title Case -->
+<h1>{{ title | titlecase }}</h1>
+
+<!-- Converts name to lowercase -->
+<h2>{{ name | lowercase }}</h2>
+
+<!-- Formats date using default format (e.g., Feb 2, 2025) -->
+<h2>{{ today | date }}</h2>
+
+<!-- Formats full date (e.g., Monday, February 3, 2025) -->
+<h2>{{ today | date:'fullDate' }}</h2>
+
+<!-- Shows only the time (hh:mm:ss format) -->
+<h2>{{ today | date:'hh:mm:ss' }}</h2>
+
+<!-- Chaining pipes: format date and then uppercase -->
+<h2>{{ today | date:'fullDate' | uppercase }}</h2>
+
+<!-- Currency pipes  -->
+<!--
+<h2>{{ amount1 | currency:'EUR' }}</h2>
+<h2>{{ amount1 | currency:'INR' }}</h2>
+<h2>{{ amount1 | currency:'GBP' }}</h2>
+-->
+
+<!-- Custom Pipe Usage -->
+
+<!-- Uses default NGN conversion (value * 1600) -->
+<h2>USD TO NGN: {{ amount2 | currencyConverter }}</h2>
+
+<!-- Uses custom conversion rate (12 * 10) -->
+<h2>YEN TO INR: {{ amount2 | currencyConverter:12 }}</h2>
+
+<!-- Uses custom conversion rate (98 * 10) -->
+<h2>EURO TO INR: {{ amount2 | currencyConverter:98 }}</h2>
 
