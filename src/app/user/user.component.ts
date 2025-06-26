@@ -60,7 +60,7 @@ export class UserComponent {
   ngOnInit() {
     this.getUsers.emit(this.users);
   }
-    */
+    
   //  Using the already made usercomponent  for the tutorial life cycle hooks
 // Receives counter value from parent
   @Input() counter = 0;
@@ -83,5 +83,5 @@ export class UserComponent {
   ngOnDestroy() {
     console.log("ngOnDestroy");
     alert("This component will be hidden");
-  }
+  }*/
 }

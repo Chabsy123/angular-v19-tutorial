@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 // import { UserComponent } from './user/user.component';
 import { CurrencyConverterPipe } from './pipe/currency-converter.pipe';
+import { ProductService } from './services/product.service';
 
 // import { RouterOutlet } from '@angular/router';
 
@@ -21,10 +22,10 @@ import { CurrencyConverterPipe } from './pipe/currency-converter.pipe';
   // for directives, depending on the one you want to use import them as well
   // when routing you import as well i.e routeroutlet and routerlink
   // with reactive forms you import reactiveformmodule
-// for pipes import the common module
+  // for pipes import the common module
   // for template driven forms you import formsmodule
-// to use a pipe you have to import it as well with its name from the pipe file you made e.g CurrencyConverterPipe
-  imports: [FormsModule,CommonModule,UserComponent,NgIf],
+  // to use a pipe you have to import it as well with its name from the pipe file you made e.g CurrencyConverterPipe
+  imports: [FormsModule, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -477,86 +478,101 @@ export class AppComponent {
 
   // template driven forms
   // Stores form data after submission
-// userData: any;
+  // userData: any;
 
-/**
- * Handles form submission.
- * Logs the submitted values and stores them in userData.
- * The form values come from the NgForm's value object.
- */
-// addUser(val: NgForm) {
-//   console.log(val);
-//   this.userData = val;
-// }
+  /**
+   * Handles form submission.
+   * Logs the submitted values and stores them in userData.
+   * The form values come from the NgForm's value object.
+   */
+  // addUser(val: NgForm) {
+  //   console.log(val);
+  //   this.userData = val;
+  // }
 
-// Stores the selected username to pass to the child component
-// userName = "Bruce";
+  // Stores the selected username to pass to the child component
+  // userName = "Bruce";
 
-/**
- * Updates 'userName' based on dropdown selection.
- * This triggers re-binding to the child.
- */
-// changeUser(val: string) {
-//   this.userName = val;
-// }
+  /**
+   * Updates 'userName' based on dropdown selection.
+   * This triggers re-binding to the child.
+   */
+  // changeUser(val: string) {
+  //   this.userName = val;
+  // }
 
-// Alternate method (not used in current HTML but functionally similar)
-// onUserChange(user: string) {
-//   this.userName = user;
-// }
-
-
-// reuse components
-// users=['Anil','Bruce','Peter','John','Tony']
-
-// pass data from child to parent component
-/**
-// Receives data emitted from the child component
-users: string[] | undefined;
+  // Alternate method (not used in current HTML but functionally similar)
+  // onUserChange(user: string) {
+  //   this.userName = user;
+  // }
 
 
- * Handles the user list emitted from the child.
- * Connected via (getUsers) event binding in app.component.html
+  // reuse components
+  // users=['Anil','Bruce','Peter','John','Tony']
 
-handleUsers(users: string[]) {
-  console.log(users);
-  this.users = users;
-}
-
-
-// pipes in angular
-// Sample values for built-in pipes
-  title = "code step by step";
-  name = "jackie chan";
-  today = new Date();
-
-  // Used for custom currency conversion examples
-  amount2 = 100;
-  */
-
-  // Using the already made usercomponent  for the tutorial life cycle hooks
-  // Tracks current counter value, passed to child
-  counter = 0;
-
-  // References the child component instance via template ref #user
-  @ViewChild('user') UserComponent: any;
-
-  constructor() {
-    // Runs immediately after initial render (sync version)
-    afterRender(() => {
-      console.log("afterRender", this.UserComponent?.counter);
-    });
-
-    // Runs after the next change detection cycle (async)
-    afterNextRender(() => {
-      console.log("afterNextRender", this.UserComponent?.counter);
-    });
+  // pass data from child to parent component
+  /**
+  // Receives data emitted from the child component
+  users: string[] | undefined;
+  
+  
+   * Handles the user list emitted from the child.
+   * Connected via (getUsers) event binding in app.component.html
+  
+  handleUsers(users: string[]) {
+    console.log(users);
+    this.users = users;
   }
+  
+  
+  // pipes in angular
+  // Sample values for built-in pipes
+    title = "code step by step";
+    name = "jackie chan";
+    today = new Date();
+  
+    // Used for custom currency conversion examples
+    amount2 = 100;
+    
+  
+    // Using the already made usercomponent  for the tutorial life cycle hooks
+    // Tracks current counter value, passed to child
+    counter = 0;
+  
+    // References the child component instance via template ref #user
+    @ViewChild('user') UserComponent: any;
+  
+    constructor() {
+      // Runs immediately after initial render (sync version)
+      afterRender(() => {
+        console.log("afterRender", this.UserComponent?.counter);
+      });
+  
+      // Runs after the next change detection cycle (async)
+      afterNextRender(() => {
+        console.log("afterNextRender", this.UserComponent?.counter);
+      });
+    }
+  
+    // Increments the counter when button is clicked
+    updateCounter() {
+      this.counter++;
+    }*/
 
-  // Increments the counter when button is clicked
-  updateCounter() {
-    this.counter++;
+  // calling the service made
+
+  productData: {
+    name: string;
+    category: string;
+    price: number;
+  }[] | undefined
+  constructor(private productService: ProductService) { }
+  getData() {
+    this.productData = this.productService.getProductData();
   }
+  // ngOnInit() {
+  //   this.productData = this.productService.getProductData();
+  // }
 }
 
 

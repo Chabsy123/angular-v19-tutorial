@@ -700,15 +700,20 @@ Each input field is bound to a FormControl using [formControl]
 
 -->
 
-<!-- Using the already made usercomponent  for the tutorial life cycle hooks-->
+<!-- Using the already made usercomponent  for the tutorial life cycle hooks
  <h1>Life Cycle Hooks in Angular</h1>
-
-<!-- Button to increment the counter -->
-<button (click)="updateCounter()">{{ counter }}</button>
+-->
+<!-- Button to increment the counter 
+<button (click)="updateCounter()">{{ counter }}</button>-->
 
 <!-- Dynamically render the child component unless counter equals 5 -->
-<!-- 'user' is a template reference passed to @ViewChild -->
+<!-- 'user' is a template reference passed to @ViewChild 
 <div *ngIf="counter != 5">
   <app-user [counter]="counter" #user></app-user>
-</div>
+</div>-->
 
+<h1>Services in Angular</h1>
+<button (click)="getData()">Load Data</button>
+@for (item of productData; track item) {
+  <h2>Name: {{item.name}}, Category: {{item.category}}, Price: {{item.price}}</h2>
+}
