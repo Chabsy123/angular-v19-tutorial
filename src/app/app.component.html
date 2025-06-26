@@ -712,8 +712,37 @@ Each input field is bound to a FormControl using [formControl]
   <app-user [counter]="counter" #user></app-user>
 </div>-->
 
-<h1>Services in Angular</h1>
+<!-- <h1>Services in Angular</h1> -->
+
+<!-- Button triggers getData() to load product list 
 <button (click)="getData()">Load Data</button>
+-->
+<!-- Loops through productData and displays each product's details 
 @for (item of productData; track item) {
-  <h2>Name: {{item.name}}, Category: {{item.category}}, Price: {{item.price}}</h2>
+  <h2>
+    Name: {{ item.name }},
+    Category: {{ item.category }},
+    Price: {{ item.price }}
+  </h2>
 }
+
+-->
+
+<!-- API CALL SERVICE -->
+<h1>API Call Service</h1>
+
+<div>
+  <!-- Loops through the product list returned from the API -->
+  @for (product of productData; track product.id) {
+    <ul>
+      <li><b>Name:</b> {{ product.title }}</li>
+      <li><b>Price:</b> {{ product.price }}</li>
+      <li><b>Rating:</b> {{ product.rating }}</li>
+
+      <!-- Displays the product image from API 'thumbnail' field -->
+      <li>
+        <img src="{{ product.thumbnail }}" alt="The thumbnail of a product">
+      </li>
+    </ul>
+  }
+</div>

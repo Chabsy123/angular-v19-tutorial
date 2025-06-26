@@ -560,19 +560,48 @@ export class AppComponent {
     }*/
 
   // calling the service made
+/**
+ // Holds product data fetched from the service
+productData: {
+  name: string;
+  category: string;
+  price: number;
+}[] | undefined;
 
-  productData: {
-    name: string;
-    category: string;
-    price: number;
-  }[] | undefined
-  constructor(private productService: ProductService) { }
-  getData() {
-    this.productData = this.productService.getProductData();
+// Injects ProductService into the component using Angular's DI
+constructor(private productService: ProductService) { }
+
+
+ * Fetches product data from the service and assigns it to productData.
+ * Called when the "Load Data" button is clicked.
+ 
+getData() {
+  this.productData = this.productService.getProductData();
+}
+
+// Optional: Can auto-load data on init if ngOnInit is uncommented
+// ngOnInit() {
+//   this.productData = this.productService.getProductData();
+// }
+*/
+
+
+// Call REST API with Services
+// Stores the list of products fetched from the API
+  productData: any;
+
+  constructor(private productService: ProductService) {}
+
+  /**
+   * On component init, call the service to get product data.
+   * Subscribes to the Observable and assigns the response to productData.
+   */
+  ngOnInit() {
+    this.productService.productList().subscribe((data: any) => {
+      console.log(data); // Logs full response from API
+      this.productData = data.products; // Assign only the 'products' array
+    });
   }
-  // ngOnInit() {
-  //   this.productData = this.productService.getProductData();
-  // }
 }
 
 
